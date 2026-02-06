@@ -33,3 +33,9 @@ During the meeting agreed on the following details
 8. Keep the **_documentation_** **precise and necessary**. 
 
 ---
+
+**Date: 6 Feb 2026**
+
+Finished **_research_** and deepened **_understanding_** on **bootloader, BIOS, UEFI, and the boot process**. Further **papers** were **identified** to conduct **research on kernel design and architecture**, along with the **strengths of Assembly, C, and Rust** programming languages.
+
+**_Deployed documentation_** on **GitHub pages** to make the documentation as interactive as possible. **Changes** are also **self managed** and **reflected** with every push.
