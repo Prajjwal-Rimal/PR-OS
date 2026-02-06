@@ -15,3 +15,6 @@ The aim of the project is to conduct research upon existing operating system ker
 - Explain concepts of memory safety 
 - Understand the role of Assembly, C, and Rust in OS development and system programming 
 - Try to explain the modern choices in OS development
+
+## Important Links
+To view the journal: [Journal](https://github.com/Prajjwal-Rimal/PR-OS/tree/main/journals)
