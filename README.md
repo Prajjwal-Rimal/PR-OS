@@ -17,4 +17,4 @@ The aim of the project is to conduct research upon existing operating system ker
 - Try to explain the modern choices in OS development
 
 ## Important Links
-To view the journal: [Journal](https://github.com/Prajjwal-Rimal/PR-OS/tree/main/journals)
+To view the journal: [Week 1](https://github.com/Prajjwal-Rimal/PR-OS/blob/main/journals/week1.md)
