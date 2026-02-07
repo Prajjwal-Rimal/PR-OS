@@ -16,5 +16,5 @@ The aim of the project is to conduct research upon existing operating system ker
 - Understand the role of Assembly, C, and Rust in OS development and system programming 
 - Try to explain the modern choices in OS development
 
-## Important Links
-To view the journal: [Week 1](journals/week1.md)
+## Links
+To view the weekly journal: [Week 1](journals/week1.md)
