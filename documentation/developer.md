@@ -12,8 +12,8 @@ This is a  **_installation and verification_** guidelines for the tools used in 
 	git --version
 	```
 
-- for **debian and ubuntu** replace **dnf** with **apt**
-- for **arch** replace **dnf** with **pacman -S**
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
 
 2. setup and verification of username and user email
 	```bash
@@ -26,7 +26,7 @@ This is a  **_installation and verification_** guidelines for the tools used in 
 	git config --global user.email
 	```
 
-- the user email should be the same as the one used in GitHub account
+	- the user **email** should be the **same as the one used in GitHub** account
 
 3. setup of ssh key
 	```bash
@@ -34,9 +34,9 @@ This is a  **_installation and verification_** guidelines for the tools used in 
 	ssh-keygen -t ed25519
 	```
 
-- this generates a **private** and a **public** file 
-- add the **_public file_** to the GitHub account
-- it is **_recommended to use ssh_**
+	- this generates a **private** and a **public** file 
+	- add the **_public file_** to the GitHub account
+	- it is **_recommended to use ssh_**
 
 4. Cloning a remote repository to the local device
 	```bash
