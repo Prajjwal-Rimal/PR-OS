@@ -20,3 +20,5 @@ The aim of the project is to conduct research upon existing operating system ker
 To view the weekly journal: [Week 1](journals/week1.md) | [Week 2](journals/week2.md)
 
 To view the sources used for the report and the project: [sources](sources/sources.md)
+
+To view the developer documentation (installation and verification): [developer](documentation/developer.md)
