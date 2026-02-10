@@ -33,3 +33,5 @@
 |31|Exploring Rust for Unikernel Development|https://dl.acm.org/doi/abs/10.1145/3365137.3365395|
 |32|REDOX OS |https://doc.redox-os.org/book/how-redox-compares.html|
 |33|"freebsd-src Public"|https://github.com/freebsd/freebsd-src|
+|34|single stage bootloader|https://altera.widen.net/content/1de46637-8b61-426e-8bb4-287cac65a84a/web/bootloader-single-stage.png?w=1920&amp;itok=j7ocNYmA|
+|35|two stage bootloader|https://altera.widen.net/content/641bf5bf-21af-4001-a515-847cf3a01830/web/bootloader-two-stage.png?w=1920&amp;itok=yywTmPyx|
