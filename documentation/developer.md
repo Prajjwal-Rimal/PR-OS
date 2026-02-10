@@ -25,6 +25,7 @@ This is a  **_installation and verification_** guidelines for the tools used in 
 	git config --global user.name
 	git config --global user.email
 	```
+
 - the user email should be the same as the one used in GitHub account
 
 3. setup of ssh key
@@ -32,9 +33,10 @@ This is a  **_installation and verification_** guidelines for the tools used in 
 	# to set up ssh 
 	ssh-keygen -t ed25519
 	```
-- this generates a private and a public file 
-- add the public file to the GitHub account
-- it is recommended to use ssh
+
+- this generates a **private** and a **public** file 
+- add the **_public file_** to the GitHub account
+- it is **_recommended to use ssh_**
 
 4. Cloning a remote repository to the local device
 	```bash
