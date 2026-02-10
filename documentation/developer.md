@@ -82,3 +82,54 @@ This is a  **_installation and verification_** guidelines for the tools used in 
 	# shows the commit history
 	git log
 	```
+
+
+## VIM
+1. Installation and Verification
+	```bash
+	# to install vim
+	sudo dnf install vim -y
+
+	#for verification and version detail
+	vim --version
+	```
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
+
+2. To create/open a file in vim
+	```bash
+	vim <filename>
+	```
+
+3. Basic Vim Keybindings
+	```
+	modes:
+	i => insert mode
+		used for text insertion
+	v => visual mode 
+		used for text selection
+	Esc => normal mode
+		used for text navigation
+	
+	
+	Navigation:
+	h 	=> left
+	j 	=> down
+	k 	=> up
+	l 	=> right
+	gg 	=> first line of the file
+	G 	=> last line of the file	
+	w 	=> next word
+	b	=> previous word
+	:<line number> 	=> move to the specified line number
+	use of arrow keys is also supported
+
+
+	exiting and saving vim:
+	:q	=> exit (only works if file is not changed)
+	:q!	=> force exit
+	:wq => saving and exiting
+	:w	=> saving the file
+	
+	```
+For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http://www.truth.sk/vim/vimbook-OPL.pdf)
