@@ -4,13 +4,14 @@ This is a  **_installation and verification_** guidelines for the tools used in 
 
 ##  Git
 1. Install and verify the version
-```bash
-# to install git via the terminal
-sudo dnf install git -y
+	```bash
+	# to install git via the terminal
+	sudo dnf install git -y
 
-# to verify git version
-git --version
-```
+	# to verify git version
+	git --version
+	```
+
 - for **debian and ubuntu** replace **dnf** with **apt**
 - for **arch** replace **dnf** with **pacman -S**
 
