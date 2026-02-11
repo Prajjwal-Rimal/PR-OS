@@ -261,3 +261,22 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 4. or just use the **Software** application, or you could install flatpak in your disto as well
 	- sudo pacman -S flatpak : Arch
 	- sudo apt install flatpak : Debian, Ubuntu
+
+## QEMU
+1. Installation
+	```bash
+	sudo dnf install @virtualization -y
+	```
+	- for other distros, OS, asd source code compilation please refer: [Download QEMU](https://www.qemu.org/download/#linux)
+2. Verification
+	```bash
+	# for 32 bit verification
+	qemu-system-i386 --version
+
+	# for 64 bit verification
+	qemu-system-x86_64 --version
+	```
+3. the project uses the following versions:
+    - qemu-system-i386 --version: QEMU emulator version 10.1.3 (qemu-10.1.3-1.fc43)
+	- qemu-system-x86_64 --version: QEMU emulator version 10.1.3 (qemu-10.1.3-1.fc43)
+
