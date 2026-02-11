@@ -337,3 +337,70 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 	# or
 	libreoffice --version
 	```
+
+## Google Docs, Drive, Mail, Meet, Sheet, Slides,
+1. open Microsoft Edge 
+2. create a Google account or sign in
+3. search for the service that needs to be used use it
+
+## Github
+1. open Microsoft Edge
+2. search for GitHub
+3. create a account or sign in
+4. add a ssh key [SSH reference](#Git)
+5. create a repository, or for a repository and start using the service
+
+## Apostrophe
+1. install using **_Flatpak_**, flatpak comes installed in fedora by default
+	```bash
+	# to check the package id for the app, and if it exits	
+	flatpak search apostrophe
+
+	# install apostrophe from flathub
+	flatpak install flathub  org.gnome.gitlab.somas.Apostrophe
+	```
+2. to update GNOME apostrophe
+	```bash
+	flatpak update  org.gnome.gitlab.somas.Apostrophe
+	```
+3. to uninstall GNOME apostrophe
+	```bash
+	flatpak uninstall org.gnome.gitlab.somas.Apostrophe
+
+	```
+4. or just use the **Software** application, or you could install flatpak in your disto as well
+	- Arch: sudo pacman -S flatpak
+	- Debian, Ubuntu: sudo apt install flatpak
+
+5. or it can be installed from dnf
+	```bash
+	# to search for the application
+	dnf search apostrophe
+
+	# to install the application 
+	sudo dnf install apostrophe
+	```
+	- just use flatpak
+
+## Microsoft Project
+1. Open windows virtual machine in a virtualization software like [GNOME Boxes](#Gnome-Boxes) or use a windows based machine
+2. Open the browser
+3. Search for office customization tool
+4. Customize the file and export it as **Configuration.xml**
+5. Create a folder named office
+6. Move the file to the office folder
+7. Again search for office deployment tool in the browser
+8. run the office deployment tool as administrator
+9. extract the files at the **office** folder created earlier
+10. Delete all the files created by office deployment tool not the one created through customization tool
+11. open command prompt as administrator in the folder and type
+	```
+	setup.exe /configure configuration.xml
+	```
+12. after installation login with the email provided by the university/any other email having proper ms project access
+
+## Notepad++
+1. Open a browser
+2. browse to [notepad++](https://notepad-plus-plus.org/downloads/)
+3. select the version needed
+4. download based on the architecture that is required
