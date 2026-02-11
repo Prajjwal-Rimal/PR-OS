@@ -338,7 +338,7 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 	libreoffice --version
 	```
 
-## Google Docs, Drive, Mail, Meet, Sheet, Slides,
+## Google Docs, Drive, Mail, Meet, Sheet, Slides
 1. open Microsoft Edge 
 2. create a Google account or sign in
 3. search for the service that needs to be used use it
@@ -347,7 +347,7 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 1. open Microsoft Edge
 2. search for GitHub
 3. create a account or sign in
-4. add a ssh key [SSH reference](#Git)
+4. add a ssh key : mentioned in git section
 5. create a repository, or for a repository and start using the service
 
 ## Apostrophe
@@ -383,7 +383,7 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 	- just use flatpak
 
 ## Microsoft Project
-1. Open windows virtual machine in a virtualization software like [GNOME Boxes](#Gnome-Boxes) or use a windows based machine
+1. Open windows virtual machine in a virtualization software like GNOME Boxes or use a windows based machine
 2. Open the browser
 3. Search for office customization tool
 4. Customize the file and export it as **Configuration.xml**
@@ -395,7 +395,7 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 10. Delete all the files created by office deployment tool not the one created through customization tool
 11. open command prompt as administrator in the folder and type
 	```
-	setup.exe /configure configuration.xml
+	setup.exe/configure configuration.xml
 	```
 12. after installation login with the email provided by the university/any other email having proper ms project access
 
