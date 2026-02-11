@@ -17,3 +17,14 @@ Started with **Developer guidelines** outlining all the installation methods, to
 ---
 
 **Date: 11 Feb 2026**
+
+**_Finished_** with the **installation** of tools and **developer guidelines**
+
+Need to make a **cross compiler gcc**, gonna try to use the **OSDev** wiki approach
+
+Found **_sources_** to start the **learning process**
+
+**_Started_** with the **presentation** for **WIP**
+
+---
+
