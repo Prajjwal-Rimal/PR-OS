@@ -258,4 +258,6 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 	flatpak uninstall com.microsoft.Edge
 
 	```
-4. or just usr the **Software** application
+4. or just use the **Software** application, or you could install flatpak in your disto as well
+	- sudo pacman -S flatpak : Arch
+	- sudo apt install flatpak : Debian, Ubuntu
