@@ -409,3 +409,90 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 1. no need to install HTML, CSS, JS
 2. create a file with the correct extentions such as index.html, style.css, scripts.js
 3. and make the webpage
+
+## NASM (Netwide Assembler)
+1. install NASM
+	```bash
+	sudo dnf install nasm
+	```
+2. verify installation
+	```bash
+	nasm --version
+	```
+	- the version used in this project is : NASM version **2.16.03** compiled on **Jul 24 2025**
+	
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
+
+## GCC
+1. install gcc
+	```bash
+	sudo dnf install gcc -y
+	```
+2. verify gcc version
+	```bash
+	gcc --version
+	```
+	- the project uses: gcc (GCC) **15.2.1** 20260123 (Red Hat 15.2.1-7)
+
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
+
+## GDB (The GNU Project Debugger)
+1. install gdb
+	```bash
+	sudo dnf install gdb -y
+	```
+2. verify gdb version
+	```bash
+	gdb --version
+	```
+	- the project uses: GNU gdb (Fedora Linux) 17.1-1.fc43
+
+
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
+
+## DD
+1. install dd
+	```bash
+	sudo dnf install dd -y
+	```
+2. verify dd version
+	```bash
+	dd --version
+	```
+	- the project uses: dd (coreutils) 9.7
+
+
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
+
+## MAKE
+1. install make
+	```bash
+	sudo dnf install make -y
+	```
+2. verify make version
+	```bash
+	make --version
+	```
+	- the project uses: GNU Make 4.4.1
+
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
+
+## Binutils
+1. install binutils
+	```bash
+	sudo dnf install binutils -y
+	```
+2. verify binutils version
+	```bash
+	as --version
+	ld --version 
+	```
+	- the project uses: GNU assembler version 2.45.1-4.fc43; GNU ld version 2.45.1-4.fc43
+
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
