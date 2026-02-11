@@ -259,8 +259,8 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 
 	```
 4. or just use the **Software** application, or you could install flatpak in your disto as well
-	- sudo pacman -S flatpak : Arch
-	- sudo apt install flatpak : Debian, Ubuntu
+	- Arch: sudo pacman -S flatpak
+	- Debian, Ubuntu: sudo apt install flatpak
 
 ## QEMU
 1. Installation
@@ -280,3 +280,60 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
     - qemu-system-i386 --version: QEMU emulator version 10.1.3 (qemu-10.1.3-1.fc43)
 	- qemu-system-x86_64 --version: QEMU emulator version 10.1.3 (qemu-10.1.3-1.fc43)
 
+
+## Gnome Boxes
+1. install using **_Flatpak_**, flatpak comes installed in fedora by default
+	```bash
+	# to check the package id for the app, and if it exits	
+	flatpak search boxes
+
+	# install edge from flathub
+	flatpak install flathub  org.gnome.Boxes
+	```
+2. to update GNOME boxes
+	```bash
+	flatpak update  org.gnome.Boxes
+	```
+3. to uninstall GNOME boxes
+	```bash
+	flatpak uninstall org.gnome.Boxes
+
+	```
+4. or just use the **Software** application, or you could install flatpak in your disto as well
+	- Arch: sudo pacman -S flatpak
+	- Debian, Ubuntu: sudo apt install flatpak
+
+5. or it can be installed from dnf
+	```bash
+	# to search for the application
+	dnf search gnome-boxes
+
+	# to install the application 
+	sudo dnf install gnome-boxes
+	```
+6. after installation
+    1. open the application
+    2. click on the + icon on the top left corner of the screen
+    3. either choose your iso or browse and download the ones available from the app
+    4. select the firmware, memory, and storage specifications
+    5. set up the virtual machine
+
+## LibreOffice
+
+1. Install from dnf
+	```bash
+	# to search for the application
+	dnf search libreoffice
+
+	# to install the application 
+	sudo dnf install libreoffice
+	```
+	- for **debian and ubuntu** replace **dnf** with **apt**
+	- for **arch** replace **dnf** with **pacman -S**
+
+2. to check the installation
+    ```bash
+	libreoffice
+	# or
+	libreoffice --version
+	```
