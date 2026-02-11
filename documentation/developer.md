@@ -173,10 +173,11 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 	- **cargo** : cargo 1.93.0 (083ac5135 2025-12-15)
 	- **rustc** : rustc 1.93.0 (254b59607 2026-01-19)
 	- **rustc nightly**: rustc 1.95.0-nightly (9e79395f9 2026-02-10)
-
+<br>
 
 4. **RUST NIGHTLY IMPORTANT**
 	- DO NOT SET **_Rust Nightly as the default_** it is **_not recommended_**
+	
 	```bash
 	# this make nightly default everywhere, not recommended
 	rustup default nightly
