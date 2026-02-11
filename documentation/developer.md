@@ -239,3 +239,23 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 	# syntax:  creates a target folder within the main project with a sub folder and builds our binary there
 
 	```
+
+## Microsoft Edge
+1. install using **_Flatpak_**, flatpak comes installed in fedora by default
+	```bash
+	# to check the package id for the app, and if it exits	
+	flatpak search edge
+
+	# install edge from flathub
+	flatpak install flathub com.microsoft.Edge
+	```
+2. to update edge
+	```bash
+	flatpak update com.microsoft.Edge
+	```
+3. to uninstall edge
+	```bash
+	flatpak uninstall com.microsoft.Edge
+
+	```
+4. or just usr the **Software** application
