@@ -404,3 +404,8 @@ For in depth vim usage please refer: [Vim book converted by Tomas Vasko ](http:/
 2. browse to [notepad++](https://notepad-plus-plus.org/downloads/)
 3. select the version needed
 4. download based on the architecture that is required
+
+## HTML, CSS, JS
+1. no need to install HTML, CSS, JS
+2. create a file with the correct extentions such as index.html, style.css, scripts.js
+3. and make the webpage
