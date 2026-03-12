@@ -1,6 +1,8 @@
 <center>
 |[SOURCES](sources/sources.md)| [DEV GUIDE](documentation/developer.md)|
 
+<br>
+
 |[Week 1](journals/week1.md)| [Week 2](journals/week2.md)|
 </center>
 
