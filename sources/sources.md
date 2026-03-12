@@ -35,3 +35,23 @@
 |33|"freebsd-src Public"|https://github.com/freebsd/freebsd-src|
 |34|single stage bootloader|https://altera.widen.net/content/1de46637-8b61-426e-8bb4-287cac65a84a/web/bootloader-single-stage.png?w=1920&amp;itok=j7ocNYmA|
 |35|two stage bootloader|https://altera.widen.net/content/641bf5bf-21af-4001-a515-847cf3a01830/web/bootloader-two-stage.png?w=1920&amp;itok=yywTmPyx|
+|36|x86 definition|https://techterms.com/definition/x86|
+|37|What Programming Languages Are Windows, macOS & Linux Written In? (Kernel, GUI Components & More)|https://linuxvox.com/blog/what-languages-are-windows-mac-os-x-and-linux-written-in/#comparison-languages-across-os-components|
+|38|What is a Subsystem?|https://www.aeanet.org/what-is-a-subsystem/|
+|39|Inline Assembly in Assembly Language Programming|https://ref.coddy.tech/assembly/assembly-inline-assembly|
+|40|Assembly Language|https://electronicsreference.com/assembly-language/|
+|41|What Is Ownership?|https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html|
+|42|Borrowing in Rust|https://www.rustcodeweb.com/2025/01/borrowing-in-rust.html|
+|43|Difference between Compile Time and Runtime|https://www.tpointtech.com/compile-time-vs-runtime|
+|44|safe vs unsafe rust|https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html|
+|45|Minimum Viable Product (MVP): What Is It & Why It Matters|https://www.milosolutions.com/blog/minimum-viable-product-mvp-definition-and-meaning/|
+|46|Understanding WIP Limit for Improved Productivity|https://www.larksuite.com/en_us/topics/productivity-glossary/wip-limit|
+|47|real mode - Intel® 64 and IA-32 Architectures Software Developer Manuals & osdev|https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html & https://wiki.osdev.org/Real_Mode|
+|48|What is Copyleft?|https://www.gnu.org/licenses/copyleft.en.html|
+|49|What is open source?|https://opensource.com/resources/what-open-source|
+|50|protected mode - Intel® 64 and IA-32 Architectures Software Developer Manuals|https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html|
+|51|GDT|https://chunqili.blogspot.com/2013/06/what-is-gdtldtidttss.html|
+|52|IDT|https://chunqili.blogspot.com/2013/06/what-is-gdtldtidttss.html|
+|53|Userspace|https://www.computerhope.com/jargon/u/user-space.htm|
+|54|Ring 0|https://medium.com/@leoyeh.me/understanding-ring-0-to-ring-3-the-hidden-layers-of-virtualization-d10e0fe5a798|
+|55|Ring 3|https://medium.com/@leoyeh.me/understanding-ring-0-to-ring-3-the-hidden-layers-of-virtualization-d10e0fe5a798|
