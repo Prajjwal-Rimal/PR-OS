@@ -1,3 +1,7 @@
+List of sources used for research, understanding,development, and the report
+
+---
+
 | No | Name | Url |
 |---|---|---|
 |1|On the Evolution of Programming Languages|https://doi.org/10.48550/arXiv.2007.02699|
@@ -55,3 +59,11 @@
 |53|Userspace|https://www.computerhope.com/jargon/u/user-space.htm|
 |54|Ring 0|https://medium.com/@leoyeh.me/understanding-ring-0-to-ring-3-the-hidden-layers-of-virtualization-d10e0fe5a798|
 |55|Ring 3|https://medium.com/@leoyeh.me/understanding-ring-0-to-ring-3-the-hidden-layers-of-virtualization-d10e0fe5a798|
+
+
+## Links
+To view the weekly journal: [Week 1](journals/week1.md) | [Week 2](journals/week2.md)
+
+To view the sources used for the report and the project: [Sources](sources/sources.md)
+
+To view the developer documentation (installation and verification): [Developer](documentation/developer.md)

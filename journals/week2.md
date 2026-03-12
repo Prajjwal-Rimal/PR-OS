@@ -164,3 +164,11 @@ refer to the cpu instruction manuals
     - the tutorials say download a bunch of things but don't explain why should i download it
     - it is a bit intimidating 
     - only reliable process seems to be the one hiligted in the OSDev wiki
+
+
+## Links
+To view the weekly journal: [Week 1](journals/week1.md) | [Week 2](journals/week2.md)
+
+To view the sources used for the report and the project: [Sources](sources/sources.md)
+
+To view the developer documentation (installation and verification): [Developer](documentation/developer.md)

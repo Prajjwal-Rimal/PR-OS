@@ -48,3 +48,11 @@ Finished **_research_** and deepened **_understanding_** on **bootloader, BIOS, 
 Finished **_research_** and deepened **_understanding_** on **the kernel architecture**, and it was decided that a **monolithic kernel** architecture would suit the project. 
 
 Further **research on the strength evaluation of each of the languages (Assembly, C, Rust)** was also conducted. Papers and project showing the kernel and OS structure **of Assembly, C, and Rust** programming languages were also identified for literature review.
+
+
+## Links
+To view the weekly journal: [Week 1](journals/week1.md) | [Week 2](journals/week2.md)
+
+To view the sources used for the report and the project: [Sources](sources/sources.md)
+
+To view the developer documentation (installation and verification): [Developer](documentation/developer.md)
