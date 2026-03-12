@@ -1,3 +1,13 @@
+<center>
+
+|[SOURCES](sources/sources.md) | [DEV GUIDE](documentation/developer.md) |
+|--|--|
+
+|[Week 1](journals/week1.md)| [Week 2](journals/week2.md)|
+|--|--|
+
+</center>
+
 # PR-OS
 A x86 Operating System based on existing kernel analysis
 
@@ -15,10 +25,3 @@ The aim of the project is to conduct research upon existing operating system ker
 - Explain concepts of memory safety 
 - Understand the role of Assembly, C, and Rust in OS development and system programming 
 - Try to explain the modern choices in OS development
-
-## Links
-To view the weekly journal: [Week 1](journals/week1.md) | [Week 2](journals/week2.md)
-
-To view the sources used for the report and the project: [sources](sources/sources.md)
-
-To view the developer documentation (installation and verification): [developer](documentation/developer.md)
