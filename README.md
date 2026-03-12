@@ -1,12 +1,8 @@
-<center>
-
 |[SOURCES](sources/sources.md) | [DEV GUIDE](documentation/developer.md) |
 |--|--|
 
 |[Week 1](journals/week1.md)| [Week 2](journals/week2.md)|
 |--|--|
-
-</center>
 
 # PR-OS
 A x86 Operating System based on existing kernel analysis
