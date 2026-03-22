@@ -4,10 +4,13 @@
 |04-02-26 | Updated the **_readme_** file to reflect the aim and objective of the project | v0.1.1 |
 |10-02-26|added the **_sources.md_** to show the sources used for research and development of the project | v0.1.2|
 |10-02-26| added **_documentation_** dir with **_developer.md_** as installation and verification guidelines for the tools used in this project | v0.1.3 |
+|22-03-26| added **_diagrams_** to show case the architecture of the os | v0.1.3 |
 
 ## Links
-To view the weekly journal: [Week 1](journals/week1.md) | [Week 2](journals/week2.md)
+To view the weekly journal: [Week 1](/journals/week1.md) | [Week 2](/journals/week2.md) | [Week 3](journals/week3.md)
 
-To view the sources used for the report and the project: [Sources](sources/sources.md)
+To view the sources used for the report and the project: [Sources](/sources/sources.md)
 
-To view the developer documentation (installation and verification): [Developer](documentation/developer.md)
+To view the developer documentation (installation and verification): [Developer](/documentation/developer.md)
+
+To view the architecture diagrams: [Diagrams](/diagrams)
