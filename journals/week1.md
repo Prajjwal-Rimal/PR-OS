@@ -51,7 +51,7 @@ Further **research on the strength evaluation of each of the languages (Assembly
 
 
 ## Links
-To view the weekly journal: [Week 1](/journals/week1.md) | [Week 2](/journals/week2.md) | [Week 5](journals/week5.md) | [Week 6,7,8](journals/week 6,7,8.md)
+To view the weekly journal: [Week 1](/journals/week1.md) | [Week 2](/journals/week2.md) | [Week 5](journals/week 5.md) | [Week 6,7,8](journals/week 6,7,8.md)
 
 To view the sources used for the report and the project: [Sources](/sources/sources.md)
 
