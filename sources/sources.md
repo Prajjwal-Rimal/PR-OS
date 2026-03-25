@@ -63,10 +63,12 @@ List of sources used for research, understanding,development, and the report
 
 
 ## Links
-To view the weekly journal: [Week 1](/journals/week1.md) | [Week 2](/journals/week2.md) | [Week 5](journals/week 5.md) | [Week 6,7,8](journals/week 6,7,8.md)
+To view the weekly journal: [Week 1](/journals/week1.md) | [Week 2](/journals/week2.md) | [Week 5](/journals/week5.md) | [Week678](/journals/week678.md)
 
 To view the sources used for the report and the project: [Sources](/sources/sources.md)
 
 To view the developer documentation (installation and verification): [Developer](/documentation/developer.md)
 
 To view the architecture diagrams: [Boot Diagram](/diagrams/bootprocess.png) | [Kernel Diagram](/diagrams/Kernel Architecture.png) | [Overall architecture Diagram](/diagrams/OS architecture.png) 
+
+To view the errors faced for assembly during the learning and development process: [Assembly Error Log](/error/errorASM.md) 
