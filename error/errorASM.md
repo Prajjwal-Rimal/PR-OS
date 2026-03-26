@@ -17,6 +17,7 @@
 | # | What | Why|Fix|
 | - | --- | --- |--- |
 |1| bit 16 | nasm doesn't need the bit 16 declaration it throws an error | remove that line for bare metal programming in nasm |
+|2| made the first section of the bootloader more than 512 bytes| `times 512 - ($ - $$) db 0 & dw 0xaa55` |`times 510 - ($ - $$) db 0 & dw 0xaa55`|
 
 ## Links
 To view the weekly journal: [Week 1](/journals/week1.md) | [Week 2](/journals/week2.md) | [Week 5](/journals/week5.md) | [Week678](/journals/week678.md)
