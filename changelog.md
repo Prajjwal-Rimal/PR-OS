@@ -5,7 +5,7 @@
 |10-02-26|added the **_sources.md_** to show the sources used for research and development of the project | v0.1.2|
 |10-02-26| added **_documentation_** dir with **_developer.md_** as installation and verification guidelines for the tools used in this project | v0.1.3 |
 |22-03-26| added **_diagrams_** to show case the architecture of the os | v0.1.4 |
-|25-03-26|added **assembly as a language** error log and learning progress| v0.1.5|
+|25-03-26|added **assembly as a language/assembly for baremetal** error log and learning progress| v0.1.5|
 
 
 ## Links
