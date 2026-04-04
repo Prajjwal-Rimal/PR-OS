@@ -18,3 +18,5 @@ To view the developer documentation (installation and verification): [Developer]
 To view the architecture diagrams: [Boot Diagram](./diagrams/bootprocess.png) | [Kernel Diagram](./diagrams/Kernel Architecture.png) | [Overall architecture Diagram](./diagrams/OS architecture.png) 
 
 To view the errors faced for assembly during the learning and development process: [Assembly Error Log](./error/errorASM.md) 
+
+To view the bootloader code: [Bootloader Code](./code/boot.asm)
