@@ -18,6 +18,11 @@
 | - | --- | --- |--- |
 |1| bit 16 | nasm doesn't need the bit 16 declaration it throws an error | remove that line for bare metal programming in nasm |
 |2| made the first section of the bootloader more than 512 bytes| `times 512 - ($ - $$) db 0 & dw 0xaa55` |`times 510 - ($ - $$) db 0 & dw 0xaa55`|
+| 3 | `program origin redefined` | Multiple `org` directives in the file | Keep only one `org` per file (stage 1 vs stage 2 separate) |
+| 4 | `parser: instruction expected` | Invalid instruction or comment not prefixed with `;` | Fix typos or add `;` for comments |
+| 5 | `org value must be a critical expression` | `org` was not a numeric constant | Use `org 0x7C00` or `org 0x8000` only |
+| 6 | `invalid combination of opcode and operands` | Far jump used incorrectly (`jmp 0x0000:0x8000`) | Use `jmp far 0x0000:0x8000` |
+
 
 ## Links
 To view the weekly journal: [Week 1](/journals/week1.md) | [Week 2](/journals/week2.md) | [Week 5](/journals/week5.md) | [Week678](/journals/week678.md)
