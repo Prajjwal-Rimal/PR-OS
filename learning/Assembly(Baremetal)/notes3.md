@@ -31,3 +31,26 @@ https://thejat.in/learn/different-stages-of-bootloader
 ## SEGMENT OFFSET ADDRESSING
 
 `Physical Address = (Segment × 16) + Offset	`
+
+## Memory mounting for the second stage and the kernel stage
+1. stage 1 is always loaded at `0x7c00`; has a  size of 512 bytes; `0x7C00+0x1FF= 0x7DFF`; the last 2 bytes are 0xaa55
+
+2. the second stage can be immediately loaded after stage 1 buyt it is good to give a bit of buffer to it so it doesnt overlap with the stage 1 stack, we do not want it to be very far off but it shouldnt be so close to overwrite the stack of stage 1; recommended to leave few hundred bytes to load the kernel like load it at `0x8000`. `0x9000` is not remommended but can be done
+
+3. `0x100000` is generally where the kernel is loaded at the 1 mb mark, real mode can only acess memory below the 1mb mark `ie till the time it can be registered as 20 bit address` after this it goes into 32 bit addressing
+
+
+
+## Real Mode Memory Map (0x00000 – 0xFFFFF)
+
+| Address Range      | Size       | Purpose / Reserved For                                   |
+|-------------------|-----------|----------------------------------------------------------|
+| 0x00000 – 0x003FF | 1 KB      | Interrupt Vector Table (IVT) – CPU interrupt handlers  |
+| 0x00400 – 0x004FF | 256 B     | BIOS Data Area (BDA) – keyboard, COM ports, system info |
+| 0x00500 – 0x7BFF | ~31 KB    | Conventional memory – free for programs, Stage 1 stack |
+| 0x7C00 – 0x7DFF | 512 B      | Stage 1 Bootloader (loaded by BIOS), last 2 bytes 0xAA55 |
+| 0x7E00 – 0x9FFFF | ~144 KB   | Stage 2 Bootloader / temporary buffers                |
+| 0xA000 – 0xBFFF | 128 KB    | Video RAM (VGA, text and graphics buffer)             |
+| 0xC000 – 0xEFFFF | 192 KB    | ROM extensions / memory-mapped hardware               |
+| 0xF0000 – 0xFFFFF | 64 KB     | System BIOS ROM – contains BIOS routines and bootstrap code |
+| 0x100000+         | -         | Kernel / protected mode memory (requires A20 line)    |
