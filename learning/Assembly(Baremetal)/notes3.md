@@ -49,8 +49,8 @@ https://thejat.in/learn/different-stages-of-bootloader
 | 0x00400 – 0x004FF | 256 B     | BIOS Data Area (BDA) – keyboard, COM ports, system info |
 | 0x00500 – 0x7BFF | ~31 KB    | Conventional memory – free for programs, Stage 1 stack |
 | 0x7C00 – 0x7DFF | 512 B      | Stage 1 Bootloader (loaded by BIOS), last 2 bytes 0xAA55 |
-| 0x7E00 – 0x9FFFF | ~144 KB   | Stage 2 Bootloader / temporary buffers                |
+| 0x7E00 – 0x9FFF | ~144 KB   | Stage 2 Bootloader / temporary buffers                |
 | 0xA000 – 0xBFFF | 128 KB    | Video RAM (VGA, text and graphics buffer)             |
-| 0xC000 – 0xEFFFF | 192 KB    | ROM extensions / memory-mapped hardware               |
-| 0xF0000 – 0xFFFFF | 64 KB     | System BIOS ROM – contains BIOS routines and bootstrap code |
+| 0xC000 – 0xEFFF | 192 KB    | ROM extensions / memory-mapped hardware               |
+| 0xF0000 – 0xFFFF | 64 KB     | System BIOS ROM – contains BIOS routines and bootstrap code |
 | 0x100000+         | -         | Kernel / protected mode memory (requires A20 line)    |
