@@ -49,14 +49,29 @@ loop_world:                 ; lable for the new loop to print the next string
 load_stage_2:               ; lable for the second stage load 
     mov ah, 0x02            ; BIOS read sectors, saying get ready to read
     mov al, 8               ; number of sectors to read, 1 section is 512 bytes so read 4096 bytes
-    mov ch, 0               ; 
-    mov cl, 2               ; 
-    mov dh, 0               ; 
-    mov dl, 0x00            ; 
-    mov bx, 0x8000          ; 
-    int 0x13                ; interrupt that allows the bios to read based on the above parameters
+    mov ch, 0               ; ch register stores the cylinder number
+                            ; bios stores the disk as an 3d grid
+                            ; the disk has cylinder(track), head(surface), sector(slice)
+                            ; ch selecting wehich track to read the disk from
+                            ; 0 too indicate read immediately from where the bootloader ends
+                            ; kind of like ring of the tree which ring to read from 0 is outermost
+    mov cl, 2               ; this is the section/sector number
+                            ; bios count starts form 1 and not 0
+                            ; basically saying ok read the second section that has been mounted
+                            ; a track can have 63 sections
+    mov dh, 0               ; this is the head number
+                            ; which plate to read from
+    mov dl, 0x00            ; this is the drive nuber, specifying what type of drive to expect
+                            ; 0x00 = floppy disk a, 0x01 is ffloppy disk b, and 0x80- is for hard disk
+                            ; harddisk will ahve a different format than this
+    mov bx, 0x8000          ; bx is an general purpose register
+                            ; here it used as an pointer to the net memory location
+                            ; BX tells the BIOS where in memory to put the data
+                            ; bios seas this and loads  stage 2 code starting at memory 0x8000.
+    int 0x13                ; BIOS DISK SERVICE INTERRUPT
+                            ; interrupt that allows the bios to read based on the above parameters
     jc loop_exit            ; jump if read fails, the bios goes to an infinite loop instead of crashing if the disk can not be read
-
+; ch,cl,dh,dl,bx are disk specific parameters and definitions
 
 mov si, loadmsg             ; moving the source index to the load message
 
