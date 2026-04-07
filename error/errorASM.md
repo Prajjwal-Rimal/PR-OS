@@ -22,6 +22,9 @@
 | 4 | `parser: instruction expected` | Invalid instruction or comment not prefixed with `;` | Fix typos or add `;` for comments |
 | 5 | `org value must be a critical expression` | `org` was not a numeric constant | Use `org 0x7C00` or `org 0x8000` only |
 | 6 | `invalid combination of opcode and operands` | Far jump used incorrectly (`jmp 0x0000:0x8000`) | Use `jmp far 0x0000:0x8000` |
+| 7 | byte data exceeds bounds| Bootloader size exceeded 512 bytes| reduce the code size|
+| 8 | symbol `loop_exit` not defined| assembler failed before reaching the level | fix the size of the bootloader |
+| 9 | symbol `jump_stage2` not defined| assembler failed before reaching the level | fix the size of the bootloader |
 
 
 ## Links

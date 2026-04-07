@@ -34,10 +34,53 @@ new_line:                                               ; to print the newline
 print_loop2:                                            ; loop to print the second messgae
     lodsb                                               ; loading from si into al and moving to the nect itrem
     cmp al,0                                            ; comparing the values of the al register with 0
-    je bootloader_loop                                  ; jumping to the bootloader loop if the value matches 0
+    je new_line_2                                       ; jumping to new line
     mov ah,0x0e                                         ; bios teletype function
     int 0x10                                            ; to p[rint ht evalue in the al reguister to the screen
     jmp print_loop2                                     ; repeat until the condition is met
+
+; NEW LINE
+new_line_2:                                             ; to print the newline
+    mov al,0x0a                                         ; ascii value for line feed fuinction: linebereakl to print the message in another line
+    mov ah,0x0e                                         ; bios teletype function
+    int 0x10                                            ; printing to the screen
+    mov al,0x0d                                         ; ascii value for the carriage return: ensures that the cursor is set to the beginning of the new line
+    mov ah,0x0e                                         ; bios teletype function
+    int 0x10                                            ; usdsed to print to the screen
+
+
+    mov ah,0x02
+    mov al,8
+    mov ch,0
+    mov cl,2
+    mov dh,0
+    mov dl,0x00
+    mov bl,0x8000
+    int 0x13
+    jc loop_exit  
+
+
+    mov si, loadVerificationMessage
+
+; LOOP TO PRINT THE VERIFICATION MESSGAE
+print_loop3:                                            ; loop to print the second messgae
+    lodsb                                               ; loading from si into al and moving to the nect itrem
+    cmp al,0                                            ; comparing the values of the al register with 0
+    je jump_stage2                                       ; jumping to new line
+    mov ah,0x0e                                         ; bios teletype function
+    int 0x10                                            ; to p[rint ht evalue in the al reguister to the screen
+    jmp print_loop3                                     ; repeat until the condition is met
+
+
+new_line_stage2_jump:
+    mov al,0x0a                                         ; line feeder/ new linw
+    mov ah,0x0e                                         ; bios teletype function
+    int 0x10                                            ; print interrupt
+    mov al,0x0d                                         ; carriage return
+    mov ah,0x0e                                         ; BIOSTELETYPE FUNCTION
+    int 0x10                                            ; interrupt to print value to he screen
+    jmp 0x0000:0x8000                                   ; actual jump segment offset memory location                                        ; usdsed to print to the screen
+
 
 ; LOOP TO KEEP THE BOOTLOADER RUNNING 
 bootloader_loop:                                        ; bootloader loop 
@@ -45,6 +88,7 @@ bootloader_loop:                                        ; bootloader loop
 
     stage1msg db "STAGE 1 BOOTLOADER LOADED",0          ; the first messgae to print to the screen
     stage2msg db "SWITCHING TO STAGE 2",0               ; the second message to display on the screen
+    loadVerificationMessage db "STAGE 2 LOADED.", 0     ; VERIFICATION MESSGAE AFTER STAGE 2 DISKIS read
 
     times 510 - ( $- $$ ) db 0                          ; setting the remaining bits of the first stage to 0
     dw 0xaa55                                           ; final verification boot signature
