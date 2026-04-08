@@ -25,6 +25,8 @@
 | 7 | byte data exceeds bounds| Bootloader size exceeded 512 bytes| reduce the code size|
 | 8 | symbol `loop_exit` not defined| assembler failed before reaching the level | fix the size of the bootloader |
 | 9 | symbol `jump_stage2` not defined| assembler failed before reaching the level | fix the size of the bootloader |
+| 10 | missing `print` label after `a20_not_supported` label | `jmp a20_not_supported_print` jumps to a non existant lable|`_print` label or use a single loop label for printing |
+| 11 |  `SI` inside loop | `mov si,message` is inside the print loop, so `SI` is reset each iteration, |  `SI` separate from the print loop loop label|
 
 
 ## Links
