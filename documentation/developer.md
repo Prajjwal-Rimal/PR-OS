@@ -509,4 +509,4 @@ To view the architecture diagrams: [Boot Diagram](/diagrams/bootprocess.png) | [
 
 To view the errors faced for assembly during the learning and development process: [Assembly Error Log](/error/errorASM.md) 
 
-To view the bootloader code: [Bootloader Code](/code/Bootloader/boot.asm) [Bootloader Stage Two Code](/code/Bootloader/bootStageTwo.asm)
+To view the bootloader code: [Bootloader Code](/code/Bootloader/boot.asm) | [Bootloader Stage Two Code](/code/Bootloader/bootStageTwo.asm)
