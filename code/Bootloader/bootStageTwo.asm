@@ -22,6 +22,7 @@ start:                                              ; setting up fresh segments 
     mov ss, ax                                      ; ss can not be directly assigned a vlaue, do it via the ax register
     mov sp, 0x9FFF                                  ; stack pointer is set to the maximum it can go just before the reserved memory
                                                     ; stack grows downwards from 0x9fff to 0x9000: giving it 4096 bytes for stack, inclusive
+    sti
 
     mov si,stage2LoadMessage
 
@@ -51,7 +52,7 @@ enable_a20:
     int     biosSystemInterrupt                     ; bios system interrupt to querry for the function
     jc      a20_not_supported                       ; checkking for the value in the jump cary flag if the value is 1 show an error, if 0x15 is not supported it is set as 1
     test    ah, ah                                  ; checking if the ah register is 0 or not through a logical AND; important to check as there are 3 responses a bios may submit
-    jnz     a20_not_supported                       ; if logibbcal AND does not return a 0 throw an error, sets ZF=1 if AH is 0, jump if not zero = jump if AH≠0.
+    jnz     a20_not_supported                       ; if logical AND does not return a 0 throw an error, sets ZF=1 if AH is 0, jump if not zero = jump if AH != 0.
 
     mov     ax, a20Gatestatus                       ; querying for the gate status for a20
     int     biosSystemInterrupt                     ; bios system interrupt to query for the function
@@ -99,10 +100,7 @@ a20_activated_print:
     mov ah, teletype_function            
     int printInterrupt                
     jmp a20_activated_print  
-
-; DEFINE GDT
-
-; FAR JUMP TO THE PROTECTED MODE AND THE KERNEL
+    
 
 stage2_loop:                                        ; infinite loop to stop the bootloader from crashing
     jmp $                   
