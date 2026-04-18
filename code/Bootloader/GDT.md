@@ -61,6 +61,9 @@ each entry is of 8 bytes (64 bits) split into various fields:
 4. e = executable, if the segment can execute code or not
 5. dc = direction/Conforming, this behaves differently based on if the segment is a code or a data
     1. in data it defines the growth of the stack if it is 0 stack grows normally if it is 1 stack grows downwards
+        1. this is more about introducing limit
+        2. 0 mean stack can go to the very end of the memory and
+        3. 1 means the stack will have a base limit that when touched the os will crash
     2. in code it is the confirming bit says what type of privilege is needed to execute it so 1 would be anything could execute the code, and 0 would be strict privilege is required
 6. rw = read write, for **_code segment_** 0 is execute only 1 is executable+ readable, for **_data segment_** its 0 is read only and 1 read write
 7. a = access, this is set by the cpu when the segment is used basically to show ok we are using this segment
