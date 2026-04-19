@@ -10,7 +10,6 @@
 
 
 ## Links
-
 To view the weekly journal: [Week 1](../journals/week1.md) | [Week 2](../journals/week2.md) | [Week 5](../journals/week5.md) | [Week678](../journals/week678.md)
 
 To view the sources used for the report and the project: [Sources](../sources/sources.md)
@@ -23,6 +22,6 @@ To view the architecture diagrams: [Boot Diagram](../diagrams/bootprocess.png) |
 
 To view the errors faced for Assembly during the learning and development process: [Assembly Error Log](../error/errorASM.md) 
 
-To view the errors faced for C during the learning and development process: [C Error Log](../error/errorC.md) 
+To view the errors faced for C during the learning and development process: [C Error Log](./error/errorC.md) 
 
-To view the bootloader code: [Bootloader Code](../code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](../code/Bootloader/src/bootStageTwo.asm) | [Bootloader Makefile](../code/Bootloader/Makefile) | [Tools Used](../code/Bootloader/Extra/Tools.md) |
+To view the bootloader code: [Bootloader Code](./code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](../code/Bootloader/src/bootStageTwo.asm) | [Bootloader Makefile](../code/Bootloader/Makefile) | [Tools Used](../code/Bootloader/Extra/Tools.md) |
