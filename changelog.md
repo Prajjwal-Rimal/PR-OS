@@ -10,7 +10,7 @@
 
 
 ## Links
-To view the project licesnse: [License](./LICENSE)
+To view the project licesnse: [License](../LICENSE)
 
 To view the weekly journal: [Week 1](./journals/week1.md) | [Week 2](./journals/week2.md) | [Week 5](./journals/week5.md) | [Week678](./journals/week678.md)
 
