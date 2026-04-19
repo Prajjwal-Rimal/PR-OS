@@ -27,23 +27,3 @@
 | 9 | symbol `jump_stage2` not defined| assembler failed before reaching the level | fix the size of the bootloader |
 | 10 | missing `print` label after `a20_not_supported` label | `jmp a20_not_supported_print` jumps to a non existant lable|`_print` label or use a single loop label for printing |
 | 11 |  `SI` inside loop | `mov si,message` is inside the print loop, so `SI` is reset each iteration, |  `SI` separate from the print loop loop label|
-
-
-## Links
-To view the project licesnse: [License](./LICENSE)
-
-To view the weekly journal: [Week 1](./journals/week1.md) | [Week 2](./journals/week2.md) | [Week 5](./journals/week5.md) | [Week678](./journals/week678.md)
-
-To view the sources used for the report and the project: [Sources](./sources/sources.md)
-
-To view the changelog: [Changelog](./changelog.md)
-
-To view the developer documentation (installation and verification): [Developer](./documentation/developer.md)
-
-To view the architecture diagrams: [Boot Diagram](./diagrams/bootprocess.png) | [Kernel Diagram](./diagrams/Kernel Architecture.png) | [Overall architecture Diagram](./diagrams/OS architecture.png) 
-
-To view the errors faced for Assembly during the learning and development process: [Assembly Error Log](./error/errorASM.md) 
-
-To view the errors faced for C during the learning and development process: [C Error Log](./error/errorC.md) 
-
-To view the bootloader code: [Bootloader Code](./code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](./code/Bootloader/src/bootStageTwo.asm) | [Bootloader Makefile](./code/Bootloader/Makefile) | [Tools Used](./code/Bootloader/Extra/Tools.md) |

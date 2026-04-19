@@ -48,23 +48,3 @@ Finished **_research_** and deepened **_understanding_** on **bootloader, BIOS, 
 Finished **_research_** and deepened **_understanding_** on **the kernel architecture**, and it was decided that a **monolithic kernel** architecture would suit the project. 
 
 Further **research on the strength evaluation of each of the languages (Assembly, C, Rust)** was also conducted. Papers and project showing the kernel and OS structure **of Assembly, C, and Rust** programming languages were also identified for literature review.
-
-
-## Links
-To view the project licesnse: [License](./LICENSE)
-
-To view the weekly journal: [Week 1](./journals/week1.md) | [Week 2](./journals/week2.md) | [Week 5](./journals/week5.md) | [Week678](./journals/week678.md)
-
-To view the sources used for the report and the project: [Sources](./sources/sources.md)
-
-To view the changelog: [Changelog](./changelog.md)
-
-To view the developer documentation (installation and verification): [Developer](./documentation/developer.md)
-
-To view the architecture diagrams: [Boot Diagram](./diagrams/bootprocess.png) | [Kernel Diagram](./diagrams/Kernel Architecture.png) | [Overall architecture Diagram](./diagrams/OS architecture.png) 
-
-To view the errors faced for Assembly during the learning and development process: [Assembly Error Log](./error/errorASM.md) 
-
-To view the errors faced for C during the learning and development process: [C Error Log](./error/errorC.md) 
-
-To view the bootloader code: [Bootloader Code](./code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](./code/Bootloader/src/bootStageTwo.asm) | [Bootloader Makefile](./code/Bootloader/Makefile) | [Tools Used](./code/Bootloader/Extra/Tools.md) |
