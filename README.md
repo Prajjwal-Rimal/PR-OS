@@ -1,6 +1,3 @@
-# PR-OS
-A x86 Operating System based on existing kernel analysis
-
 ## Aim
 The aim of the project is to conduct research upon existing operating system kernels based on Assembly, C, and Rust and then implement a minimal bootloader, kernel and a userspace to create a minimal x86 32 bit operating system based on the strengths of the researched kernels and languages. 
 
