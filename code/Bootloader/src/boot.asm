@@ -49,18 +49,6 @@ new_line:                                               ; to print the newline
     jc bootloader_loop                                  ; if failed to read the disk go to the inifnite loop instead of crashing
 
 
-    mov si, stage2msg
-
-; LOOP TO PRINT THE VERIFICATION MESSAGE
-print_loop2:                                            ; loop to print the second message
-    lodsb                                               ; loading from si into al and moving to the next item
-    cmp al,0                                            ; comparing the values of the al register with 0
-    je stage2_jump                                      ; jumping to new line
-    mov ah,teletype_function                            ; bios teletype function
-    int printInterrupt                                  ; to print the value in the al register to the screen
-    jmp print_loop2                                     ; repeat until the condition is met
-
-
 stage2_jump:
     jmp 0x0000:0x8000                                   ; actual jump segment offset memory location
 
@@ -70,7 +58,5 @@ bootloader_loop:                                        ; bootloader loop
     jmp $                                               ; jumping back to the current memory address i.e the bootloader_loop
 
     stage1msg db "STAGE 1 BOOTLOADER LOADED",0          ; the first message to print to the screen
-    stage2msg db "STAGE 2 LOADED.", 0                   ; verification message after the disk is read
-
     times 510 - ( $- $$ ) db 0                          ; setting the remaining bits of the first stage to 0
     dw 0xaa55                                           ; final verification boot signature
