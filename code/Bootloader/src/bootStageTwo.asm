@@ -21,7 +21,7 @@ start:                                              ; setting up fresh segments 
     mov ax, 0x9000
     mov ss, ax                                      ; ss can not be directly assigned a vlaue, do it via the ax register
     mov sp, 0x9FFF                                  ; stack pointer is set to the maximum it can go just before the reserved memory
-                                                    ; stack grows downwards from 0x9fff to 0x9000: giving it 4096 bytes for stack, inclusive
+                                                    ; stack grows downwards
     sti
 
     mov si,stage2LoadMessage
@@ -162,7 +162,7 @@ protected_mode:                                     ; setting the stack for the 
     mov fs, ax
     mov gs, ax
 
-    mov ebp, 0x90000
+    mov ebp, 0X100000
     mov esp, ebp
     mov dword [0xb8000], 0x07200750   ;
 
