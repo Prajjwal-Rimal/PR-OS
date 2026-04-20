@@ -162,7 +162,7 @@ protected_mode:                                     ; setting the stack for the 
     mov fs, ax
     mov gs, ax
 
-    mov ebp, 0X100000
+    mov ebp, 0x90000
     mov esp, ebp
     mov dword [0xb8000], 0x07200750   ;
 
