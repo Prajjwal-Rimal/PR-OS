@@ -30,5 +30,5 @@ To view the errors faced for C during the learning and development process: [C E
 
 To view the bootloader code: [Bootloader Code](./code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](./code/Bootloader/src/bootStageTwo.asm) | [Bootloader Makefile](./code/Bootloader/Makefile) | [Tools Used](./code/Bootloader/Extra/Tools.md) |
 
-To view information about cross compiler GCC: [Cross Compiler GCC](./documentation/crossCompilerGCC.md|
-
+To view information about cross compiler GCC:
+[Cross Compiler GCC](./documentation/crossCompilerGCC.md)
