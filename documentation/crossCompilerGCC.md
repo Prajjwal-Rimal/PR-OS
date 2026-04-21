@@ -61,3 +61,49 @@ sudo dnf install texinfo
 ```bash
 sudo dnf install isl-devel
 ```
+
+
+
+## Steps
+1. install the above tools
+2. install the gcc and binutils source code from [binutils](https://ftp.gnu.org/gnu/binutils/) and [GCC](https://ftp.lip6.fr/pub/gcc/releases/)
+3. commands
+```bash
+# defining the path and the target
+
+#defining the path where everything will be installed
+export PREFIX="$HOME/opt/cross"
+
+# the target architecture i686 is for 32 bit mode and the file output -elf is for flat binary output file
+export TARGET=i686-elf
+
+# adding the compiler to the path
+export PATH="$PREFIX/bin:$PATH"
+
+# make sure that the folder names are the below mentioned
+# src is the source folder where the extracted source code is saved
+cd $HOME/src
+
+# compiling binutils replace x.y.z with the downloaded version
+mkdir build-binutils
+cd build-binutils
+../binutils-x.y.z/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
+make
+make install
+
+cd $HOME/src
+
+# compiling gcc replace x.y.z with the downloaded version
+mkdir build-gcc
+cd build-gcc
+../gcc-x.y.z/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c,c++ --without-headers --disable-hosted-libstdcxx
+make all-gcc
+make all-target-libgcc
+make all-target-libstdc++-v3
+make install-gcc
+make install-target-libgcc
+make install-target-libstdc++-v3
+
+## to verify the cross compiler build
+$HOME/opt/cross/bin/i686-elf-gcc --version
+```
