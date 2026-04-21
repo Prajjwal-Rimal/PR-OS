@@ -22,52 +22,42 @@ ld --version
 replace dnf with **apt** for **debian/ ubuntu** and **pacman -S for arch**
 
 1. GCC - core compiler
-
 ```bash
 sudo dnf install gcc
 ```
 2. G++ - required for new gcc versions
-
 ```bash
 sudo dnf install g++
 ```
 3. MAKE - automate the build system
-
 ```bash
 sudo dnf install make
 ```
 4. BISON - parser
-
 ```bash
 sudo dnf install bison
 ```
 5. FLEX - lexical analyzer generator
-
 ```bash
 sudo dnf install flex
 ```
 6. GMP (math library) - handles large arithmetic
-
 ```bash
 sudo dnf install gmp-devel
 ```
 7. MPFR(floating point math) - precise floating-point calculations
-
 ```bash
 sudo dnf install mpfr-devel
 ```
 8. MPC(complex math) - complex number arithmetic
-
 ```bash
 sudo dnf install libmpc-devel
 ```
 9. TEXINFO - generate GCC documentation
-
 ```bash
 sudo dnf install texinfo
 ```
 10. ISL (OPTIONAL) - advanced loop optimizations and code analysis
-
 ```bash
 sudo dnf install isl-devel
 ```
