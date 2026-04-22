@@ -88,6 +88,12 @@ cd $HOME/src
 # compiling binutils replace x.y.z with the downloaded version
 mkdir build-binutils
 cd build-binutils
+
+# target is defining the architecture to target
+# prefix install location
+# with sysroot enables a virtual root file system
+# disable nls disables native language support
+# disable werror suppresses warnigs being treated as errors
 ../binutils-x.y.z/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
 make
 make install
@@ -97,6 +103,15 @@ cd $HOME/src
 # compiling gcc replace x.y.z with the downloaded version
 mkdir build-gcc
 cd build-gcc
+
+# target is defining the architecture to target
+# prefix install location
+# with sysroot enables a virtual root file system
+# disable nls disables native language support
+# enable languages is defining the support for the supported languages
+# without headers is dont expect any existing standard libraries
+# disable werror suppresses warnings being treated as errors
+# disable hosted libstdcxx disables hosted c++ standard library features
 ../gcc-x.y.z/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c,c++ --without-headers --disable-hosted-libstdcxx
 make all-gcc
 make all-target-libgcc
@@ -107,4 +122,7 @@ make install-target-libstdc++-v3
 
 ## to verify the cross compiler build
 $HOME/opt/cross/bin/i686-elf-gcc --version
+
+## to make the cross compile shareable 
+tar -czf i686-elf-gcc.tar.gz -C $HOME/opt cross
 ```
