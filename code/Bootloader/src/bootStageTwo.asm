@@ -6,10 +6,6 @@ org 0x8000                                          ; start address for the seco
     carriageReturn equ 0x0d 
     teletype_function equ 0x0e
     printInterrupt equ 0x10 
-;    biosSystemInterrupt equ 0x15
-;    a20SupportStatus equ 0x2403
-;    a20Gatestatus equ 0x2402
-;    a20gateenable equ 0x2401W
 
 
 ; STACK AND INTERRUPTS
@@ -24,70 +20,15 @@ start:                                              ; setting up fresh segments 
                                                     ; stack grows downwards
     sti
 
-    mov si,stage2LoadMessage
+    mov ah,0x02                                         ; bios read sector, telling the bios to rread from the specified source
+    mov al,8                                            ; number of sections to read from the dis, each section is of 512 bytes
+    mov ch,0                                            ; specifying which ring of the disk should the data be read from
+    mov cl,2                                            ; specifying the section to be read from, sections start from 1 not 0 all the way to 63
+    mov dh,0                                            ; which plate to read from, which head to read from
+    mov dl,0x00                                         ; specifing the type of drive 0x00 is floppy disk , 0x80 is hard disk, 0x01 is floppy disk 2
+    mov bx,0x8000                                       ; read and write location, bios sees this and starts reading from this location
+    int 0x13                   
 
-print_message_1:                                    ; loop to print the message
-    lodsb
-    cmp al,0
-    je new_line
-    mov ah, teletype_function
-    int printInterrupt
-    jmp print_message_1
-
-
-new_line:                                           ; to print the newline
-    mov al,newline
-    mov ah,teletype_function
-    int printInterrupt
-    mov al,carriageReturn
-    mov ah,teletype_function
-    int printInterrupt
-    jmp enable_a20
-
-; https://wiki.osdev.org/A20_Line
-; https://www.ctyme.com/intr/int-15.html
-; jnz stands for jump if not zero
-;enable_a20:
-;    mov     ax, a20SupportStatus                    ; checking if bios supports a20 gate by default, placing the query function in the ax register
-;    int     biosSystemInterrupt                     ; bios system interrupt to querry for the function
-;    jc      a20_not_supported                       ; checkking for the value in the jump cary flag if the value is 1 show an error, if 0x15 is not supported it is set as 1
-;     test    ah, ah                                  ; checking if the ah register is 0 or not through a logical AND; important to check as there are 3 responses a bios may submit
-;     jnz     a20_not_supported                       ; if logical AND does not return a 0 throw an error, sets ZF=1 if AH is 0, jump if not zero = jump if AH != 0.
-
-;     mov     ax, a20Gatestatus                       ; querying for the gate status for a20
-;     int     biosSystemInterrupt                     ; bios system interrupt to query for the function
-;     jc      a20_not_enabled                         ; if the carry flag is set jump to the error 
-;     test    ah, ah                                  ; if ah valur is 1 then its an error
-;     jnz     a20_not_enabled                         ; if value is 1 jump to the error
-;     test    al, al                                  ;if al value is 1 then a20 is on if 0 then it is off
-;     jnz     a20_activated                           ; if al is on jump to activated
-;                                                     ; ah is the value for bios and al is the response
-
-;     mov     ax, a20gateenable                       ; Activate A20 gate
-;     int     biosSystemInterrupt                     ; bios system interrupt to query for the function
-;     jc      a20_not_enabled                         ; if the carry flag is set then the activation failed and fo to the error message
-;     test    ah, ah                                  ; if ah is 1 then it failed
-;     jnz     a20_not_enabled                         ; if failed go to the error messgae
-
-
-; a20_not_supported:                                  ; jump to infinite loop
-;     jmp stage2_loop
-
-; a20_not_enabled:                                    ; jump to infinite loop
-;     jmp stage2_loop
-    
-; a20_activated:                                      ; a20 activated si, message, and loop
-;     mov si,a20ActivatedMessage
-; a20_activated_print:
-;     lodsb                   
-;     cmp al,0                
-;     je stage2_loop
-;     mov ah, teletype_function            
-;     int printInterrupt                
-;     jmp a20_activated_print  
-
-; A20 using system control port A 
-; found on most newer computers
 ;https://wiki.osdev.org/A20_Line#Fast_A20_Gate
 enable_a20:
     in al, 0x92                                       ; in reads data from the hardware i/o port to a cpu register
@@ -168,9 +109,4 @@ protected_mode:                                       ; setting the stack for th
 
 
 stage2_loop:                                          ; infinite loop to stop the bootloader from crashing
-    jmp $                       mov dword [0xb8000], 0x07200750
-
-
-; MESSAGES
-stage2LoadMessage db "ENTERED STAGE 2",0
-; a20ActivatedMessage db "A20 ACTIVATED",0
+    jmp 0x08:0x100000
