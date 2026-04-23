@@ -22,7 +22,7 @@ start:                                                  ; start lable
     mov ch,0                                            ; specifying which ring of the disk should the data be read from
     mov cl,2                                            ; specifying the section to be read from, sections start from 1 not 0 all the way to 63
     mov dh,0                                            ; which plate to read from, which head to read from
-    mov dl,0x80                                         ; specifing the type of drive 0x00 is floppy disk , 0x80 is hard disk, 0x01 is floppy disk 2
+    mov dl,0x00                                         ; specifing the type of drive 0x00 is floppy disk , 0x80 is hard disk, 0x01 is floppy disk 2
     mov bx,0x8000                                       ; read and write location, bios sees this and starts reading from this location
     int 0x13                                            ; interrupt that lets the bios read the file from the above parameters
     jc bootloader_loop                                  ; if failed to read the disk go to the inifnite loop instead of crashing

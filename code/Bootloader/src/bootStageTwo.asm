@@ -9,24 +9,24 @@ org 0x8000                                          ; start address for the seco
 
 
 ; STACK AND INTERRUPTS
-start:                                              ; setting up fresh segments for the stack
+start:                                               ; setting up fresh segments for the stack
     cli                 
     xor ax, ax
     mov ds, ax
     mov es, ax
     mov ax, 0x9000
-    mov ss, ax                                      ; ss can not be directly assigned a vlaue, do it via the ax register
-    mov sp, 0x0000                                  ; stack pointer is set to the maximum it can go just before the reserved memory
-                                                    ; stack grows downwards
+    mov ss, ax                                       ; ss can not be directly assigned a vlaue, do it via the ax register
+    mov sp, 0x0000                                   ; stack pointer is set to the maximum it can go just before the reserved memory
+                                                     ; stack grows downwards
     sti
 
-    mov ah,0x02                                         ; bios read sector, telling the bios to rread from the specified source
-    mov al,8                                            ; number of sections to read from the dis, each section is of 512 bytes
-    mov ch,0                                            ; specifying which ring of the disk should the data be read from
-    mov cl,2                                            ; specifying the section to be read from, sections start from 1 not 0 all the way to 63
-    mov dh,0                                            ; which plate to read from, which head to read from
-    mov dl,0x00                                         ; specifing the type of drive 0x00 is floppy disk , 0x80 is hard disk, 0x01 is floppy disk 2
-    mov bx,0x8000                                       ; read and write location, bios sees this and starts reading from this location
+    mov ah,0x02                                       ; bios read sector, telling the bios to rread from the specified source
+    mov al,8                                          ; number of sections to read from the dis, each section is of 512 bytes
+    mov ch,0                                          ; specifying which ring of the disk should the data be read from
+    mov cl,2                                          ; specifying the section to be read from, sections start from 1 not 0 all the way to 63
+    mov dh,0                                          ; which plate to read from, which head to read from
+    mov dl,0x00                                       ; specifing the type of drive 0x00 is floppy disk , 0x80 is hard disk, 0x01 is floppy disk 2
+    mov bx,0x8000                                     ; read and write location, bios sees this and starts reading from this location
     int 0x13                   
 
 ;https://wiki.osdev.org/A20_Line#Fast_A20_Gate
