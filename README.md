@@ -28,7 +28,13 @@ To view the errors faced for Assembly during the learning and development proces
 
 To view the errors faced for C during the learning and development process: [C Error Log](./error/errorC.md) 
 
-To view the bootloader code: [Bootloader Code](./code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](./code/Bootloader/src/bootStageTwo.asm) | [Bootloader Makefile](./code/Bootloader/Makefile) | [Tools Used](./code/Bootloader/Extra/Tools.md) |
+To view the bootloader code: [Bootloader Code](./code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](./code/Bootloader/src/bootStageTwo.asm) | [Tools Used](./code/Bootloader/Extra/Tools.md)
+
+To view the kernel code: [Kernel Assembly code](./code/Kernel/src/kernel.asm) | [Kernel C code](./code/Kernel/src/kernel.c)
+
+To view the Makefile: [Makefile](./code/Makefile) 
+
+To view the linker file: [Linker File](./code/Bootloader/linke.ld)
 
 To view information about cross compiler GCC:
 [Cross Compiler GCC](./documentation/crossCompilerGCC.md)
