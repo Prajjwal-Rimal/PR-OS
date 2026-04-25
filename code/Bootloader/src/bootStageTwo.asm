@@ -1,13 +1,6 @@
 ; STAGE 2
 org 0x8000                                          ; start address for the second stage bootloader , padding of 512 bytes from stage 1
 
-; CONSTANTS 
-    newline equ 0x0a
-    carriageReturn equ 0x0d 
-    teletype_function equ 0x0e
-    printInterrupt equ 0x10 
-
-
 ; STACK AND INTERRUPTS
 start:                                               ; setting up fresh segments for the stack
     cli                 
@@ -17,16 +10,17 @@ start:                                               ; setting up fresh segments
     mov ax, 0x9000
     mov ss, ax                                       ; ss can not be directly assigned a vlaue, do it via the ax register
     mov sp, 0x0000                                   ; stack pointer is set to the maximum it can go just before the reserved memory
-                                                     ; stack grows downwards
     sti
 
-    mov ah,0x02                                       ; bios read sector, telling the bios to rread from the specified source
-    mov al,8                                          ; number of sections to read from the dis, each section is of 512 bytes
-    mov ch,0                                          ; specifying which ring of the disk should the data be read from
-    mov cl,2                                          ; specifying the section to be read from, sections start from 1 not 0 all the way to 63
-    mov dh,0                                          ; which plate to read from, which head to read from
-    mov dl,0x00                                       ; specifing the type of drive 0x00 is floppy disk , 0x80 is hard disk, 0x01 is floppy disk 2
-    mov bx,0x8000                                     ; read and write location, bios sees this and starts reading from this location
+    mov ah,0x02
+    mov al,10
+    mov ch,0
+    mov cl,10
+    mov dh,0
+    mov dl,0x80
+    mov bx,0x1000
+    mov es,bx
+    mov bx, 0x0000
     int 0x13                   
 
 ;https://wiki.osdev.org/A20_Line#Fast_A20_Gate
@@ -45,6 +39,7 @@ gdt_start:
 
     dq 0x0000000000000000                             ; defining the value for a null segment
 
+    ; code segment
     dw 0xffff                                         ; maximum limit of the segment 4 gb
     dw 0x0000                                         ; lower base value
     db 0x00                                           ; middle base value
@@ -56,15 +51,16 @@ gdt_start:
                                                       ; the upper limit of the segment is 0xf
                                                       ; the flag for this section is 1100
                                                       ; combining the flag and limit to a byte we get 0x1100f or 0x11001111
-                                                      ; in acess byte 00: is kernel, 01(drivers) & 10(services) are rarely used, 11 is for userspace
-                                                      ; the acess byte is an hexadecimal value for thhe binary value 10011010
+                                                      ; in access byte 00: is kernel, 01(drivers) & 10(services) are rarely used, 11 is for userspace
+                                                      ; the access byte is an hexadecimal value for thhe binary value 10011010
+    ; data segment
     dw 0xffff                                       
     dw 0x0000
     db 0x00
     db 0x92
     db 0xcf
     db 0x00
-                                                      ; everything is the same besifdes the acess byte its value is 10010010
+                                                      ; everything is the same besides the access byte its value is 10010010
 gdt_end:
 
                                                       ; TELLING THE CPU HOW LARGE THE GDT TABLE IS POINTER TO THE TABLE
@@ -105,8 +101,11 @@ protected_mode:                                       ; setting the stack for th
     mov gs, ax
     mov ebp, 0x9ffff                                  ; setting the stack at 0x9ffff in flat memory model
     mov esp, ebp
-    mov dword [0xb8000], 0x07200750
 
+    mov esi, 0x10000                                  ; setting the stack index to 64 kb
+    mov edi, 0x100000                                 ; moving the copy index to 1 mb
+    mov ecx, 2048                                     ; specifying the number of bytes to copy
+    rep movsd                                         ; moving double word in each copy so each copy moves 4 bytes of data to the specified location
 
 stage2_loop:                                          ; infinite loop to stop the bootloader from crashing
     jmp 0x08:0x100000
