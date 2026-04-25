@@ -34,7 +34,7 @@ To view the kernel code: [Kernel Assembly code](./code/Kernel/src/kernel.asm) | 
 
 To view the Makefile: [Makefile](./code/Makefile) 
 
-To view the linker file: [Linker File](./code/Bootloader/linke.ld)
+To view the linker file: [Linker File](./code/Bootloader/linker.ld)
 
 To view information about cross compiler GCC:
 [Cross Compiler GCC](./documentation/crossCompilerGCC.md)
