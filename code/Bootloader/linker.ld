@@ -1,4 +1,4 @@
-/*telling the linker script to look for the   _start lable in the specified file*/                                                                        start lable in the specified file*/
+/*telling the linker script to look for the   _start lable in the specified file*/
 ENTRY(_start)
 
 /*output of the file*/
