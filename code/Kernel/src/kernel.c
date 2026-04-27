@@ -1,10 +1,11 @@
 # define vga_print_address 0xB8000
 # define vga_color_scheme 0x04
 # define tagline_vga_color_scheme 0x0C
-#define vga_write_address 0xB8000
-#define vga_width 80
-#define vga_height 25
-#define vga_color 0x04
+# define vga_write_address 0xB8000
+# define vga_width 80
+# define vga_height 25
+# define vga_color 0x04
+
 // https://www.wasilzafar.com/pages/series/kernel-development/kernel-dev-phase-04-display-input.html
 // vga mode 1987 
 // has 80 columns and 25 rows 
