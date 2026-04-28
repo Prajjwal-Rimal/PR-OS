@@ -7,3 +7,4 @@
 |22-03-26| added **_diagrams_** to show case the architecture of the os | v0.1.4 |
 |4-04-26|added learning process for assembly and stage 1 bootloader code| v1.0.0|
 |4-08-26|stage 2 bootloader with a20 enable and started with the C learning process| v1.1.0|
+|4-21-26|cross compiler GCC| v1.2.0|
