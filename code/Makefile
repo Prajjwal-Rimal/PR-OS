@@ -27,7 +27,7 @@ combine:
 	cat Bootloader/bin/boot.bin Bootloader/bin/bootStageTwo.bin Kernel/bin/kernel.bin > os_image.bin
 
 	# command to compile all
-all: stage1 stage2 kernel combine truncate
+all: stage1 stage2 kernel truncate combine
 
 run: combine
 	# combine dependency and command to ru it in qemu in monitoring mode 
