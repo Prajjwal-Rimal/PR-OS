@@ -116,4 +116,11 @@ void kernel_main() {
         int index = introduction_row * 80 + (start_col_introduction + i);
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
+
+    // GDT IN C
+    // IDT IN C
+    // INTERRUPT HANDELLING IN RUST
+    // DRIVER IN RUST
+    // FOUNDATION OF MEMORY MANAGEMENT IN RUST
+    // SYSCALL IN RUST
 } 
