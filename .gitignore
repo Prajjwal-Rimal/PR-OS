@@ -5,4 +5,4 @@
 *.img 
 # img files can contain multiple binary files and simulate a storage device
 test/
-learning\
+learning/
