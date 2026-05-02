@@ -22,7 +22,7 @@ To view the changelog: [Changelog](./changelog.md)
 
 To view the developer documentation (installation and verification): [Developer](./documentation/developer.md)
 
-To view the architecture diagrams: [Boot Diagram](./diagrams/bootprocess.png) | [Kernel Diagram](./diagrams/Kernel Architecture.png) | [Overall architecture Diagram](./diagrams/OS architecture.png) 
+To view the architecture diagrams: [Boot Diagram](./diagrams/bootprocess.png) | [Kernel Diagram](./diagrams/Kernel Architecture.png) | [Overall architecture Diagram](./diagrams/OS architecture.png) | [Language Table](./diagrams/Language Use Diagram.png) | [Memory Table](./diagrams/Memory Use Diagram.png) 
 
 To view the errors faced for Assembly during the learning and development process: [Assembly Error Log](./error/errorASM.md) 
 
