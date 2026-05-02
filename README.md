@@ -38,3 +38,6 @@ To view the linker file: [Linker File](./code/Bootloader/linker.ld)
 
 To view information about cross compiler GCC:
 [Cross Compiler GCC](./documentation/crossCompilerGCC.md)
+
+To view the installation guideline:
+[Installation Guidelines](./documentation/installationGuidelines.md)

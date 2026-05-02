@@ -60,3 +60,27 @@ List of sources used for research, understanding,development, and the report
 |53|Userspace|https://www.computerhope.com/jargon/u/user-space.htm|
 |54|Ring 0|https://medium.com/@leoyeh.me/understanding-ring-0-to-ring-3-the-hidden-layers-of-virtualization-d10e0fe5a798|
 |55|Ring 3|https://medium.com/@leoyeh.me/understanding-ring-0-to-ring-3-the-hidden-layers-of-virtualization-d10e0fe5a798|
+|56|assembly language |https://www.britannica.com/technology/assembly-language|
+|57|princeton uni : intro to programming systems|https://www.cs.princeton.edu/courses/archive/spr19/cos217/lectures/13_Assembly1.pdf|
+|58|ASSEMBLY-REGISTERS|https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm|
+|59|x86 Assembly Guide|https://www.cs.virginia.edu/~evans/cs216/guides/x86.html|
+|60|ASSEMBLY-Directives|https://www.tutorialspoint.com/assembly_programming/assembly_constants.htm|
+|61|ASSEMBLY-Variables|https://www.tutorialspoint.com/assembly_programming/assembly_variables.htm|
+|62|Addressing Modes in Assembly Language: A Complete Guide|https://medium.com/@chetanp.verma98/addressing-modes-in-assembly-language-a-complete-guide-0d862a9144bc|
+|63|BIOS|https://wiki.osdev.org/BIOS|
+|64|"Ralf Brown's Interrupt List Indexed HTML Version - Release 61 "|https://www.ctyme.com/rbrown.htm|
+|65|What is C Programming Language? Basics, Introduction, History|https://www.guru99.com/c-programming-language.html|
+|66|"Rust: The Programming Language for Safety and 
+Performance"|https://arxiv.org/pdf/2206.05503|
+|67|Data Types in C|https://www.sanfoundry.com/data-types-in-c/|
+|68|Size of Pointers in C: The Memory Footprint Every Hardware Engineer Must Understand|https://www.123microcontroller.com/en/size-of-pointers-c/|
+|69|Constant In C | How To Define, Rules & Types (+Detailed Examples)|https://unstop.com/blog/constant-in-c
+|70|Operators in C|https://www.geeksforgeeks.org/c/operators-in-c/|
+|71|C: The Complete Reference, Fourth Edition|BOOK FROM LIBRARY|
+|72|"6.S096 Lecture 3: C Memory Management"|https://ocw.mit.edu/courses/6-s096-introduction-to-c-and-c-january-iap-2013/resources/mit6_s096_iap13_lec3/|
+|73|Dynamic Memory Allocation in C|https://www.geeksforgeeks.org/c/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/8|
+|74|Control Flow in C Programming|https://medium.com/@mahdinacademy/control-flow-in-c-programming-139555d2c8fd|
+|75|Jump Statements in C: break, continue, goto, return|https://www.scholarhat.com/tutorial/c/jump-statements-in-c|
+|76|"Functions in C"|https://www.geeksforgeeks.org/c/c-functions/|
+|77|C Structures|https://www.geeksforgeeks.org/c/structures-c/|
+|78|make|https://medium.com/@divyeshpal07/mastering-gnu-make-and-makefiles-the-developers-guide-22df3b97cc0d|
