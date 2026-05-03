@@ -5,6 +5,6 @@
     - Select _use existing virtual hard disk file_ or a similar option in the virtual machine manager.
     - Select the os_bin.img file.
     - Since the OS uses BIOS select the boot tupe ad SATA or any other legacy option.
-    - Ensure the os has a minimum of 512 MB Memory as the stack is set at 5mb so it gives the os a bit of the wiggle room.
+    - Ensure the os has a minimum of 2 GB of RAM as the stack is set at 5mb so it gives the os a bit of the wiggle room.
    
 3. Start the virtual machine and enjoy the OS.
