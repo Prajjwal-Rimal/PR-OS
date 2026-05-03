@@ -31,4 +31,6 @@ all: stage1 stage2 kernel truncate combine
 
 run: combine
 	# combine dependency and command to ru it in qemu in monitoring mode 
-	qemu-system-i386 -hda os_image.bin -monitor stdio
+	# defining the memory available to the system in MB 4096 mb / 1024 = 4gb
+	run: combine
+    qemu-system-i386 -m 4096 -drive format=raw,file=os_image.bin -monitor stdio

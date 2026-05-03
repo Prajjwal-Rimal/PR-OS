@@ -7,3 +7,4 @@
 | 3 | wrote logo text without quotes | C treats unquoted text as variables, causing syntax errors | wrap each line in quotes `"..."` |
 | 4 | missing function declaration for `terminal_clear` | compiler saw function call before its definition | add prototype `void terminal_clear();` or move function above |
 | 5 | misunderstanding VGA write | writing only character without proper 16-bit format breaks display | combine char + color using `char \| (color << 8)`|
+| 6 | Physical Memory Mismatch |	Pointing ESP to an address (e.g., 1 GB or 4 GB) that does not exist in the emulator's allocated RAM. | Allocate sufficient physical RAM in QEMU using the -m flag (e.g., -m 4096) to back the logical stack address. |
