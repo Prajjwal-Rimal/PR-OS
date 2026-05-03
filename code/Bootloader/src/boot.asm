@@ -9,10 +9,10 @@ start:                                                  ; start lable
     mov sp,0x7c00                                       ; setting the stack pointer to the starting address
     sti                                                 ; restarting the interrupts
 
-; the first implementation set bx as 0x8000 though it was supposed to work i think due to the segment and offset addressing it was reading data from the wrong location
-; hence this is why i think it was booting through the hardisk also os devs guides theat es:bx
-; https://wiki.osdev.org/Disk_access_using_the_BIOS_(INT_13h)
-;bios in int 0x13 dies segment and offset adressing based on es:bx
+                                                        ; the first implementation set bx as 0x8000 though it was supposed to work i think due to the segment and offset addressing it was reading data from the wrong location
+                                                        ; hence this is why i think it was booting through the hardisk also os devs guides theat es:bx
+                                                        ; https://wiki.osdev.org/Disk_access_using_the_BIOS_(INT_13h)
+                                                        ; bios in int 0x13 dies segment and offset adressing based on es:bx
 
 ; reading stage 2 from the disk
     mov ah,0x02                                         ; bios read sector, telling the bios to rread from the specified source

@@ -107,7 +107,7 @@ protected_mode:                                       ; setting the stack for th
     mov ecx, 2048                                     ; specifying the number of bytes to copy
     rep movsd                                         ; moving double word in each copy so each copy moves 4 bytes of data to the specified location
 
-    mov ebp, 0x500000
+    mov ebp, 0x40000000                               ; setting the os stack at 1gb
     mov esp, ebp
 
 stage2_loop:                                          ; infinite loop to stop the bootloader from crashing
