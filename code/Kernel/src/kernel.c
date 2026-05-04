@@ -1,4 +1,5 @@
 # include "gdt.h"
+#include "idt.h"
 
 # define vga_print_address 0xB8000
 # define vga_color_scheme 0x04
@@ -58,6 +59,8 @@ void terminal_clear() {
 void kernel_main() {
 
     initgdt();
+
+    //initidt();
 
     // clearing the terminal before printing to the screen
     terminal_clear();

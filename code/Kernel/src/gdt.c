@@ -1,13 +1,15 @@
 #include "gdt.h"
+#include <stdint.h>
 
-extern void gdt_flush(__UINT32_TYPE__);
+
+extern void gdt_flush(uint32_t);
 
 struct gdt_entry gdt_entries[5];
 struct gdt_ptr gdt_pointer;
 
 void initgdt(){
     gdt_pointer.limit = (sizeof(struct gdt_entry) *5) - 1;
-    gdt_pointer.base = (__UINT32_TYPE__)&gdt_entries;
+    gdt_pointer.base = (uint32_t)&gdt_entries;
 
     gdtgate(0,0,0,0,0); //null segment
     gdtgate(1,0,0xffffffff,0x9a,0xcf); //kernel code segment
@@ -16,10 +18,10 @@ void initgdt(){
     gdtgate(3,0,0xffffffff,0xfa,0xcf); //user code segment
     gdtgate(4,0,0xffffffff,0xf2,0xcf); //user data segment
 
-    gdt_flush((__UINT32_TYPE__)&gdt_pointer);
+    gdt_flush((uint32_t)&gdt_pointer);
 }
 
-void gdtgate (__UINT32_TYPE__ num, __UINT32_TYPE__ base, __UINT32_TYPE__ limit, __UINT8_TYPE__ access, __UINT8_TYPE__ granularity ){
+void gdtgate (uint32_t num, uint32_t base, uint32_t limit, uint8_t access, uint8_t granularity ){
     gdt_entries[num].baselow = (base & 0xffff);
     gdt_entries[num].basemiddle = (base >> 16) & 0xff;
     gdt_entries[num].basehigh = (base >> 24) & 0xff;
