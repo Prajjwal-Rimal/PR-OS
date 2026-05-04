@@ -1,4 +1,5 @@
 #include "gdt.h"
+
 extern void gdt_flush(__UINT32_TYPE__);
 
 struct gdt_entry gdt_entries[5];

@@ -121,7 +121,6 @@ void kernel_main() {
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
 
-    // IDT IN C
     // INTERRUPT HANDELLING IN RUST
     // DRIVER IN RUST
     // FOUNDATION OF MEMORY MANAGEMENT IN RUST
