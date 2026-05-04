@@ -1,3 +1,5 @@
+# include "gdt.h"
+
 # define vga_print_address 0xB8000
 # define vga_color_scheme 0x04
 # define tagline_vga_color_scheme 0x0C
@@ -54,6 +56,8 @@ void terminal_clear() {
 
 // main kernel fuunction
 void kernel_main() {
+
+    initgdt();
 
     // clearing the terminal before printing to the screen
     terminal_clear();
@@ -117,7 +121,6 @@ void kernel_main() {
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
 
-    // GDT IN C
     // IDT IN C
     // INTERRUPT HANDELLING IN RUST
     // DRIVER IN RUST
