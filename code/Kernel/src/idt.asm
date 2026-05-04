@@ -1,42 +1,62 @@
-[bits 32]
-global idt_load
-global isr0
-global isr33
-extern idtp
-extern idt_handler
+global idt_flush
 
-idt_load:
-    lidt [idtp]
-    sti             ; Enable interrupts
+idt_glush:
+    mov eax, [esp+4]
+    lidt [eax]
+    sti
     ret
 
-; Division by Zero
-isr0:
-    push byte 0
-    push byte 0
-    jmp isr_common_stub
+; 2 different type of interrupt routines, one with error code, and one without error code
 
-; Keyboard IRQ
-isr33:
-    push byte 0
-    push byte 33
-    jmp isr_common_stub
+%macro ISR_NOERRORCODE 1
+    global isr%1
+        isr%1
+        cli
+        push long 0
+        push long %1
+        jmp isr_common_stub
+%endmacro
 
-isr_common_stub:
-    pusha
-    mov ax, ds
-    push eax
-    mov ax, 0x10    ; Kernel Data Segment
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    call idt_handler
-    pop eax
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    popa
-    add esp, 8
-    iret
+
+%macro ISR_ERRORCODE 1
+    global isr%1
+        isr%1
+        cli
+        push long %1
+        jmp isr_common_stub
+%endmacro
+
+ISR_NOERRORCODE 0
+ISR_NOERRORCODE 1
+ISR_NOERRORCODE 2
+ISR_NOERRORCODE 3
+ISR_NOERRORCODE 4
+ISR_NOERRORCODE 5
+ISR_NOERRORCODE 6
+ISR_NOERRORCODE 7
+ISR_ERRORCODE 8
+ISR_NOERRORCODE 9
+ISR_ERRORCODE 10
+ISR_ERRORCODE 11
+ISR_ERRORCODE 12
+ISR_ERRORCODE 13
+ISR_ERRORCODE 14
+ISR_NOERRORCODE 15
+ISR_NOERRORCODE 16
+ISR_NOERRORCODE 17
+ISR_NOERRORCODE 18
+ISR_NOERRORCODE 19
+ISR_NOERRORCODE 20
+ISR_NOERRORCODE 21
+ISR_NOERRORCODE 22
+ISR_NOERRORCODE 23
+ISR_NOERRORCODE 24
+ISR_NOERRORCODE 25
+ISR_NOERRORCODE 26
+ISR_NOERRORCODE 27
+ISR_NOERRORCODE 28
+ISR_NOERRORCODE 29
+ISR_NOERRORCODE 30
+ISR_NOERRORCODE 31
+ISR_NOERRORCODE 128
+ISR_NOERRORCODE 177
