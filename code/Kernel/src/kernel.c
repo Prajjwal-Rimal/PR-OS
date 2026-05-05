@@ -16,15 +16,10 @@ extern void switch_to_userspace();
 
 // main kernel fuunction
 void kernel_main() {
-
-    initgdt();
-
-    initidt();
-
-    // clearing the terminal before printing to the screen
     terminal_clear();
-
     initkeyboard();
+    initgdt();
+    initidt();
 
     // defining a character of array for logo and ending it with a null terminator
     const char *logo[]={
@@ -85,11 +80,12 @@ void kernel_main() {
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
 
-    for(volatile int i = 0; i < 100000000; i++) {
+    for(volatile int i = 0; i < 30000000; i++) {
         __asm__("nop");
     }
-    
+
     switch_to_userspace();
+
     // SYSCALL IN RUST
     // ECHO AND HELP COMMAND IN RUST IN THE USERSPACE
     // BASIC TEXT EDITOR IN THE USERSPACE IN RUST
