@@ -17,6 +17,8 @@ kernel:
 	i686-elf-gcc -c Kernel/src/gdt.c -o Kernel/build/gdt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
 	i686-elf-gcc -c Kernel/src/idt.c -o Kernel/build/idt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
 	i686-elf-gcc -c Kernel/src/vga.c -o Kernel/build/vga.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
+	i686-elf-gcc -c Kernel/src/driver.c -o Kernel/build/driver.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
+
 
     # 3. Link everything together
     # Crucial: kernel_entry.o remains first to ensure the CPU starts at the right address
@@ -28,6 +30,7 @@ kernel:
         Kernel/build/idt.o \
         Kernel/build/idt_flush.o \
 		Kernel/build/vga.o \
+		Kernel/build/driver.o \
         --oformat binary
 truncate:
 	# setting the file to the specific size

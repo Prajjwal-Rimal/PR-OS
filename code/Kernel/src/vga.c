@@ -17,13 +17,12 @@ void Reset(){
     }
 }
 
-void newline(){
-    if (line<height -1){
+void newline() {
+    column = 0;
+    if (line < height - 1) {
         line++;
-        column =0;
-    }else{
+    } else {
         scrollUp();
-        column =0;
     }
 }
 
@@ -46,6 +45,7 @@ void print(const char *s){
                 newline();
                 break;
             case '\r':
+                newline();
                 column =0;
                 break;
             default:

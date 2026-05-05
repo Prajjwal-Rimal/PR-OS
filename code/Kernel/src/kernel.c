@@ -3,6 +3,7 @@
 # include "terminalclear.h"
 # include "vga.h"
 # include <stdint.h>
+# include "driver.h"
 
 # define vga_color_scheme 0x04
 # define tagline_vga_color_scheme 0x0C
@@ -18,6 +19,8 @@ void kernel_main() {
     // clearing the terminal before printing to the screen
     terminal_clear();
 
+    initkeyboard();
+    
     // defining a character of array for logo and ending it with a null terminator
     const char *logo[]={
         "PPPPPP  RRRRRR          OOOOO   SSSSS   ",

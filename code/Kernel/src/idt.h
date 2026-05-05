@@ -97,3 +97,6 @@ extern void irq12();
 extern void irq13();
 extern void irq14();
 extern void irq15();
+
+
+void irq_install_handler(int irq, void (*handler)(struct InterruptRegisters *r));
