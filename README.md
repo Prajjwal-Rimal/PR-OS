@@ -30,7 +30,7 @@ To view the errors faced for C during the learning and development process: [C E
 
 To view the bootloader code: [Bootloader Code](./code/Bootloader/src/boot.asm) | [Bootloader Stage Two Code](./code/Bootloader/src/bootStageTwo.asm) | [Tools Used](./code/Bootloader/Extra/Tools.md)
 
-To view the kernel code: [Kernel Assembly code](./code/Kernel/src/kernel.asm) | [Kernel C code](./code/Kernel/src/kernel.c) | [Kernel gdt header file](./code/Kernel/src/gdt.h) | [Kernel  gdt  file](./code/Kernel/src/gdt.c) | [gdt flush asm](./code/Kernel/src/gdtflush.asm)
+To view the kernel code: [Kernel Assembly code](./code/Kernel/src/kernel.asm) | [Kernel C code](./code/Kernel/src/kernel.c) | [Kernel gdt header file](./code/Kernel/src/gdt.h) | [Kernel  gdt  file](./code/Kernel/src/gdt.c) | [gdt flush asm](./code/Kernel/src/gdtflush.asm) | [Kernel idt header file](./code/Kernel/src/idt.h) | [Kernel  idt  file](./code/Kernel/src/idt.c) | [idt flush asm](./code/Kernel/src/idtflush.asm) | [idt flush asm](./code/Kernel/src/terminalclear.h) |
 
 To view the Makefile: [Makefile](./code/Makefile) 
 
