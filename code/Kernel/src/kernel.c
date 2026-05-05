@@ -1,6 +1,7 @@
 # include "gdt.h"
 # include "idt.h"
 # include "terminalclear.h"
+# include "vga.h"
 # include <stdint.h>
 
 # define vga_color_scheme 0x04
@@ -108,7 +109,7 @@ void kernel_main() {
     // DRIVER IN RUST
     // FOUNDATION OF MEMORY MANAGEMENT IN RUST
     // SYSCALL IN RUST
-    
+
     // ECHO AND HELP COMMAND IN RUST IN THE USERSPACE
     // BASIC TEXT EDITOR IN THE USERSPACE IN RUST
     // NUMBER GUESSING GAME IN THE USERSPACE IN RUST
