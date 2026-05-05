@@ -20,7 +20,7 @@ void kernel_main() {
     terminal_clear();
 
     initkeyboard();
-    
+
     // defining a character of array for logo and ending it with a null terminator
     const char *logo[]={
         "PPPPPP  RRRRRR          OOOOO   SSSSS   ",
@@ -80,9 +80,6 @@ void kernel_main() {
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
 
-    // INTERRUPT HANDELLING IN RUST
-    // DRIVER IN RUST
-    // FOUNDATION OF MEMORY MANAGEMENT IN RUST
     // SYSCALL IN RUST
 
     // ECHO AND HELP COMMAND IN RUST IN THE USERSPACE
