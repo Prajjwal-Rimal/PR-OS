@@ -1,0 +1,10 @@
+[package]
+name = "rust_userspace"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[lib]
+name = "rust_userspace"
+crate-type = ["staticlib"] # This is the "magic" line

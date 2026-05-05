@@ -9,6 +9,11 @@
 # define tagline_vga_color_scheme 0x0C
 # define vga_print_address 0xB8000
 
+
+extern void switch_to_userspace();
+
+
+
 // main kernel fuunction
 void kernel_main() {
 
@@ -80,8 +85,12 @@ void kernel_main() {
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
 
+    for(volatile int i = 0; i < 100000000; i++) {
+        __asm__("nop");
+    }
+    
+    switch_to_userspace();
     // SYSCALL IN RUST
-
     // ECHO AND HELP COMMAND IN RUST IN THE USERSPACE
     // BASIC TEXT EDITOR IN THE USERSPACE IN RUST
     // NUMBER GUESSING GAME IN THE USERSPACE IN RUST
