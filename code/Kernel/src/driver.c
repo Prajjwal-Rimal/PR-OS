@@ -4,6 +4,7 @@
 # include "driver.h"
 #include "stdbool.h"
 
+
 // read a vlaue from the specidfied port to rv and return it
 char inportb(uint16_t port){
     char rv;

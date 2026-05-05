@@ -22,11 +22,11 @@ kernel: rust_userspace
 	nasm -f elf32 Kernel/src/userspace.asm -o Kernel/build/userspace.o
     
 	# 2. Compile C logic
-	i686-elf-gcc -c Kernel/src/kernel.c -o Kernel/build/kernel.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
-	i686-elf-gcc -c Kernel/src/gdt.c -o Kernel/build/gdt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
-	i686-elf-gcc -c Kernel/src/idt.c -o Kernel/build/idt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
-	i686-elf-gcc -c Kernel/src/vga.c -o Kernel/build/vga.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
-	i686-elf-gcc -c Kernel/src/driver.c -o Kernel/build/driver.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
+	i686-elf-gcc -c Kernel/src/kernel.c -o Kernel/build/kernel.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
+	i686-elf-gcc -c Kernel/src/gdt.c -o Kernel/build/gdt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
+	i686-elf-gcc -c Kernel/src/idt.c -o Kernel/build/idt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
+	i686-elf-gcc -c Kernel/src/vga.c -o Kernel/build/vga.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
+	i686-elf-gcc -c Kernel/src/driver.c -o Kernel/build/driver.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
 
 	# 3. Link everything
 	i686-elf-ld -o Kernel/bin/kernel.bin -T Bootloader/linker.ld \

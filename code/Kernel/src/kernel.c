@@ -10,16 +10,25 @@
 # define vga_print_address 0xB8000
 
 
-extern void switch_to_userspace();
+// extern void switch_to_userspace();
+extern uint16_t line;   
+extern uint16_t column;
 
-
+// int kstrcmp(const char *a, const char *b) {
+//     int i = 0;
+//     while (a[i] && b[i]) {
+//         if (a[i] != b[i]) return 0;
+//         i++;
+//     }
+//     return a[i] == b[i];
+// }
 
 // main kernel fuunction
 void kernel_main() {
     terminal_clear();
-    initkeyboard();
     initgdt();
     initidt();
+    initkeyboard();
 
     // defining a character of array for logo and ending it with a null terminator
     const char *logo[]={
@@ -36,8 +45,6 @@ void kernel_main() {
 
     // defining the intro of the project    
     const char *introduction= "created by: PRAJJWAL RIMAL";
-
-
 
     // shifting the vga print address to the vga 
     unsigned short *vga = (unsigned short*)vga_print_address;
@@ -80,14 +87,14 @@ void kernel_main() {
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
 
-    // for(volatile int i = 0; i < 30000000; i++) {
-    //     __asm__("nop");
-    // }
+    for(volatile int i = 0; i < 900000000; i++) {
+        __asm__("nop");
+    }
 
+
+    terminal_clear();
+    print("\n \nPROS> ");
+    
     // switch_to_userspace();
-
-    // SYSCALL IN RUST
-    // ECHO AND HELP COMMAND IN RUST IN THE USERSPACE
-    // BASIC TEXT EDITOR IN THE USERSPACE IN RUST
-    // NUMBER GUESSING GAME IN THE USERSPACE IN RUST
+    
 } 
