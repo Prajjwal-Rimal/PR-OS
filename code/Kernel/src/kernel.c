@@ -80,11 +80,11 @@ void kernel_main() {
         vga[index] = introduction[i] | (tagline_vga_color_scheme << 8);
     }
 
-    for(volatile int i = 0; i < 30000000; i++) {
-        __asm__("nop");
-    }
+    // for(volatile int i = 0; i < 30000000; i++) {
+    //     __asm__("nop");
+    // }
 
-    switch_to_userspace();
+    // switch_to_userspace();
 
     // SYSCALL IN RUST
     // ECHO AND HELP COMMAND IN RUST IN THE USERSPACE
