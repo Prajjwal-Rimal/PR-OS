@@ -60,7 +60,7 @@ void kernel_main() {
 
     initgdt();
 
-    //initidt();
+    initidt();
 
     // clearing the terminal before printing to the screen
     terminal_clear();

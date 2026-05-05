@@ -13,14 +13,13 @@
 // gate type: describes the interrupt
 // segment selector: specifies the code segment in the gdt that will be use for the entry
 
-    struct idt_entry
-{
-    uint32_t baselow;
+struct idt_entry {
+    uint16_t baselow;
     uint16_t sel;
     uint8_t always0;
     uint8_t flag;
     uint16_t basehigh;
-}__attribute__((packed));
+} __attribute__((packed));
 //attribute packed tells to define the memory the way we have defined it doing so make it that there is no extra padding in the struct
    
 struct idt_ptr
@@ -33,7 +32,16 @@ void initidt();
     
 void idtgate (uint8_t number, uint32_t base, uint16_t sel, uint8_t flags);
      
-void isr_handler(struct InterruptRegisters* regs);
+
+struct InterruptRegisters{
+    uint32_t cr2;
+    uint32_t ds;
+    uint32_t edi,esi,ebp,esp,ebx,edx,ecx,eax;
+    uint32_t int_no,err_code;
+    uint32_t eip,csm,eflags,useeresp,ss;
+};
+
+void isr_handler(struct InterruptRegisters *regs);
 
 // reference to all the functions
 extern void isr0();

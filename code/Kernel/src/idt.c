@@ -4,7 +4,7 @@
 struct idt_entry idt[256];
 struct idt_ptr idt_pointer;
 
-extern void idt_flush();
+extern void idt_flush(uint32_t);
 
 void memset(void *dest, char val, uint32_t count){
     char *temp = (char*) dest;
@@ -15,22 +15,21 @@ void memset(void *dest, char val, uint32_t count){
 
 void outportB(uint16_t port, uint8_t value){
     // this outputs a byte of data to an spepcified io port
-    asm volatile ("outb %1 50" : : "dN" (port),"a" (value));
+    asm volatile ("outb %1, %0" : : "dN" (port),"a" (value));
 }
 
 void initidt(){
     idt_pointer.limit = sizeof(struct idt_entry) * 256 -1;
     idt_pointer.base = (uint32_t) &idt;
 
-    memset(idt,0,sizeof(idt)*256);
+    memset(idt, 0, sizeof(idt));
 
     //pic
     // 2 pic
     // master slave, or main or secondary
     // 0x20 for commands and ox21 for data
     // 0xa0 for command and oxa1 for data
-    // need to initialize these chips to actulally use interrupts
-
+    // need to initialize these chips to actulally use interrupts irq
     // setting the chips to the initialization mode
     // after this the chips expect few more values
     outportB(0x20, 0x11);
@@ -86,28 +85,27 @@ void initidt(){
     idtgate(177, (uint32_t)isr177, 0x08, 0x8E);
 
     // interrupt request is by the hardware
-    setIdtGate(32, (uint32_t)irq0, 0x08, 0x8E);
-    setIdtGate(33, (uint32_t)irq1, 0x08, 0x8E);
-    setIdtGate(34, (uint32_t)irq2, 0x08, 0x8E);
-    setIdtGate(35, (uint32_t)irq3, 0x08, 0x8E);
-    setIdtGate(36, (uint32_t)irq4, 0x08, 0x8E);
-    setIdtGate(37, (uint32_t)irq5, 0x08, 0x8E);
-    setIdtGate(38, (uint32_t)irq6, 0x08, 0x8E);
-    setIdtGate(39, (uint32_t)irq7, 0x08, 0x8E);
-    setIdtGate(40, (uint32_t)irq8, 0x08, 0x8E);
-    setIdtGate(41, (uint32_t)irq9, 0x08, 0x8E);
-    setIdtGate(42, (uint32_t)irq10, 0x08, 0x8E);
-    setIdtGate(43, (uint32_t)irq11, 0x08, 0x8E);
-    setIdtGate(44, (uint32_t)irq12, 0x08, 0x8E);
-    setIdtGate(45, (uint32_t)irq13, 0x08, 0x8E);
-    setIdtGate(46, (uint32_t)irq14, 0x08, 0x8E);
-    setIdtGate(47, (uint32_t)irq15, 0x08, 0x8E);
+    idtgate(32, (uint32_t)irq0, 0x08, 0x8E);
+    idtgate(33, (uint32_t)irq1, 0x08, 0x8E);
+    idtgate(34, (uint32_t)irq2, 0x08, 0x8E);
+    idtgate(35, (uint32_t)irq3, 0x08, 0x8E);
+    idtgate(36, (uint32_t)irq4, 0x08, 0x8E);
+    idtgate(37, (uint32_t)irq5, 0x08, 0x8E);
+    idtgate(38, (uint32_t)irq6, 0x08, 0x8E);
+    idtgate(39, (uint32_t)irq7, 0x08, 0x8E);
+    idtgate(40, (uint32_t)irq8, 0x08, 0x8E);
+    idtgate(41, (uint32_t)irq9, 0x08, 0x8E);
+    idtgate(42, (uint32_t)irq10, 0x08, 0x8E);
+    idtgate(43, (uint32_t)irq11, 0x08, 0x8E);
+    idtgate(44, (uint32_t)irq12, 0x08, 0x8E);
+    idtgate(45, (uint32_t)irq13, 0x08, 0x8E);
+    idtgate(46, (uint32_t)irq14, 0x08, 0x8E);
+    idtgate(47, (uint32_t)irq15, 0x08, 0x8E);
 
     // 0x0e - 1000 1110
     // 0x08 - 0000 1000 - this is the selector 
 
-    idt_flush( &idt_pointer);
-
+    idt_flush((uint32_t)&idt_pointer);
 }
 
 void idtgate (uint8_t num, uint32_t base, uint16_t sel, uint8_t flags){
@@ -118,15 +116,9 @@ void idtgate (uint8_t num, uint32_t base, uint16_t sel, uint8_t flags){
     idt[num].flag = flags | 0x60;
 }
 
-struct InterruptRegisters{
-    uint32_t cr2;
-    uint32_t ds;
-    uint32_t edi,esi,ebp,esp,ebx,edx,ecx,eax;
-    uint32_t int_no,err_code;
-    uint32_t eip,csm eflags, useeresp,ss;
-}
 
-unsigned *char exception messgaes[]={
+
+unsigned char *exception_message[]={
     "Division By Zero",
     "Debug",
     "Non Maskable Interrupt",
@@ -159,23 +151,31 @@ unsigned *char exception messgaes[]={
     "Reserved",
     "Reserved",
     "Reserved"
-}
+};
 
-void isr_handler(struct InterruptRegisters* regs){
-    if (regs -> int_no <32)
-    {
-        print(exception_messgae | req->int_no);
-        print("\n");
-        print("exception!\n");
+void isr_handler(struct InterruptRegisters *regs) {
+    // 0xB8000 is the standard VGA text buffer address
+    uint16_t *vga = (uint16_t*)0xB8000;
+    uint16_t error_color = 0x4F << 8; // White text on Red background
+
+    if (regs->int_no < 32) {
+        char *msg = (char *)exception_message[regs->int_no];
+        
+        // Manual loop to print the error at the top of the screen
+        for (int i = 0; msg[i] != '\0'; i++) {
+            // Index 0 is the very top-left of the screen
+            vga[i] = msg[i] | error_color;
+        }
+
+        // Halt the system
         for (;;);
     }
-    
 }
 
 // rotines associated with interrupt requests
- void *irq_routines[16]={
+void *irq_routines[16]={
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
- }
+ };
 
 
 void irq_install_handler (int irq, void (*handler)(struct InterruptRegisters *r)){
@@ -196,8 +196,8 @@ void irq_handler(struct InterruptRegisters* regs){
     }
 
     if (regs->int_no >= 40){
-        outPortB(0xA0, 0x20);
+        outportB(0xA0, 0x20);
     }
 
-    outPortB(0x20,0x20);
+    outportB(0x20,0x20);
 }

@@ -7,27 +7,26 @@ stage2:
 	nasm -f bin Bootloader/src/bootStageTwo.asm -o Bootloader/bin/bootStageTwo.bin
 	
 kernel: 
-	# 1. Compile the assembly entry point
+	# 1. Compile all assembly components (Entry, GDT Flush, and IDT Stubs)
 	nasm -f elf32 Kernel/src/kernel.asm -o Kernel/build/kernel_entry.o
-	
-	# 2. NEW: Compile the GDT assembly flush
 	nasm -f elf32 Kernel/src/gdtflush.asm -o Kernel/build/gdt_flush.o
-	
-	# 3. Compile the main kernel C file
+	nasm -f elf32 Kernel/src/idt.asm -o Kernel/build/idt_asm.o
+    
+    # 2. Compile all C logic files
 	i686-elf-gcc -c Kernel/src/kernel.c -o Kernel/build/kernel.o -ffreestanding -O0 -nostdlib -fno-stack-protector
-	
-	# 4. NEW: Compile the GDT C logic
-	# (Include path -I allows it to find gdt.h if it's in the same folder)
 	i686-elf-gcc -c Kernel/src/gdt.c -o Kernel/build/gdt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
-	
-	# 5. UPDATED: Link everything together
-	# Note: kernel_entry.o MUST stay first to ensure it's at the start of the binary
+	i686-elf-gcc -c Kernel/src/idt.c -o Kernel/build/idt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -I Kernel/src/
+    
+    # 3. Link everything together
+    # Crucial: kernel_entry.o remains first to ensure the CPU starts at the right address
 	i686-elf-ld -o Kernel/bin/kernel.bin -T Bootloader/linker.ld \
-		Kernel/build/kernel_entry.o \
-		Kernel/build/kernel.o \
-		Kernel/build/gdt.o \
-		Kernel/build/gdt_flush.o \
-		--oformat binary
+        Kernel/build/kernel_entry.o \
+        Kernel/build/kernel.o \
+        Kernel/build/gdt.o \
+        Kernel/build/gdt_flush.o \
+        Kernel/build/idt.o \
+        Kernel/build/idt_asm.o \
+        --oformat binary
 truncate:
 	# setting the file to the specific size
 	# 1 sector

@@ -1,9 +1,9 @@
 global idt_flush
 
-idt_glush:
+idt_flush:
+    sti
     mov eax, [esp+4]
     lidt [eax]
-    sti
     ret
 
 ; 2 different type of interrupt routines, one with error code, and one without error code
