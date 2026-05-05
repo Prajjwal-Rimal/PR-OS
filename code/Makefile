@@ -10,7 +10,7 @@ kernel:
 	# 1. Compile all assembly components (Entry, GDT Flush, and IDT Stubs)
 	nasm -f elf32 Kernel/src/kernel.asm -o Kernel/build/kernel_entry.o
 	nasm -f elf32 Kernel/src/gdtflush.asm -o Kernel/build/gdt_flush.o
-	nasm -f elf32 Kernel/src/idt.asm -o Kernel/build/idt_asm.o
+	nasm -f elf32 Kernel/src/idtflush.asm -o Kernel/build/idt_flush.o
     
     # 2. Compile all C logic files
 	i686-elf-gcc -c Kernel/src/kernel.c -o Kernel/build/kernel.o -ffreestanding -O0 -nostdlib -fno-stack-protector
@@ -25,7 +25,7 @@ kernel:
         Kernel/build/gdt.o \
         Kernel/build/gdt_flush.o \
         Kernel/build/idt.o \
-        Kernel/build/idt_asm.o \
+        Kernel/build/idt_flush.o \
         --oformat binary
 truncate:
 	# setting the file to the specific size
