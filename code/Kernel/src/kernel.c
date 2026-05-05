@@ -1,13 +1,11 @@
 # include "gdt.h"
-#include "idt.h"
+# include "idt.h"
+# include "terminalclear.h"
+# include <stdint.h>
 
-# define vga_print_address 0xB8000
 # define vga_color_scheme 0x04
 # define tagline_vga_color_scheme 0x0C
-# define vga_write_address 0xB8000
-# define vga_width 80
-# define vga_height 25
-# define vga_color 0x04
+# define vga_print_address 0xB8000
 
 // https://www.wasilzafar.com/pages/series/kernel-development/kernel-dev-phase-04-display-input.html
 // vga mode 1987 
@@ -35,24 +33,6 @@
 // '\b' (BS)     0x08    Move cursor back, erase character
 // '\f' (FF)     0x0C    Clear screen (form feed)
 // Printable    0x20-7E  Display character at cursor position
-
-
-// function to clear there terminal screen before printing things to the screen
-void terminal_clear() {
-
-    // shifting the vga print address to the vga 
-    unsigned short *vga = (unsigned short*)vga_write_address;
-
-    // ascii blank charater stored in the lower 8 bits, and shifting the color value in upper 8 bits
-    // bitwise or operator combines the lower and upper bits into a single value
-    unsigned short blank = ' ' | (vga_color << 8);
-
-    // loop to change the character of the vga array to blank spaces
-    // the height of vga array is always fixed at 80 and width at 25
-    for (int i = 0; i < vga_width * vga_height; i++) {
-        vga[i] = blank;
-    }
-}
 
 
 // main kernel fuunction
@@ -128,4 +108,7 @@ void kernel_main() {
     // DRIVER IN RUST
     // FOUNDATION OF MEMORY MANAGEMENT IN RUST
     // SYSCALL IN RUST
+    // ECHO AND HELP COMMAND IN RUST IN THE USERSPACE
+    // BASIC TEXT EDITOR IN THE USERSPACE IN RUST
+    // NUMBER GUESSING GAME IN THE USERSPACE IN RUST
 } 
