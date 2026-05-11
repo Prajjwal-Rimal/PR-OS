@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 
+# telling the rust to compile this project as a library with no metadata 
 [lib]
 name = "rust_userspace"
-crate-type = ["staticlib"] # This is the "magic" line
+crate-type = ["staticlib"]

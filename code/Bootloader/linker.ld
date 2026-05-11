@@ -1,4 +1,5 @@
-/*telling the linker script to look for the   _start lable in the specified file*/
+/*telling the linker script to look for the
+ *  _start lable in the specified file*/
 ENTRY(_start)
 
 /*output of the file*/
@@ -9,7 +10,9 @@ SECTIONS
     /*kernel load address*/
     . = 0x100000;
 
-    /*code section*/
+    /*code section the sections 
+     * just define where each typoe of our code will be saved to
+     * , if variable where if code where and all*/
     .text : ALIGN(4096)
     {
         *(.text)
@@ -35,4 +38,8 @@ SECTIONS
     }
 }
 
-/*things are in 4096 blocks or 4kb as paging supports 4kb blocks and future memory management depends on the blocks being 4kb*/
+/*things are in 4096 blocks or 4kb as paging supports 
+ * 4kb blocks and future memory management depends on the blocks being 4kb*/
+
+
+

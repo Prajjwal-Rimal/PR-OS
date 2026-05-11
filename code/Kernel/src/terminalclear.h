@@ -22,3 +22,4 @@ void terminal_clear() {
         vga[i] = blank;
     }
 }
+

@@ -112,3 +112,6 @@ protected_mode:                                       ; setting the stack for th
 
 stage2_loop:                                          ; infinite loop to stop the bootloader from crashing
     jmp 0x08:0x100000
+
+
+

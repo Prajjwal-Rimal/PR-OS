@@ -7,7 +7,7 @@ stage2:
 	nasm -f bin Bootloader/src/bootStageTwo.asm -o Bootloader/bin/bootStageTwo.bin
 
 rust_userspace:
-	# Added unstable-options and json-target-spec to allow the .json file
+	# unstable options and json target specification to allow the .json file
 	cd Userspace/rust_userspace && cargo +nightly build --release \
 		-Z unstable-options \
 		-Z json-target-spec \
@@ -15,20 +15,20 @@ rust_userspace:
 		-Z build-std=core,compiler_builtins
 
 kernel: rust_userspace
-	# 1. Compile assembly
+	# compile assembly
 	nasm -f elf32 Kernel/src/kernel.asm -o Kernel/build/kernel_entry.o
 	nasm -f elf32 Kernel/src/gdtflush.asm -o Kernel/build/gdt_flush.o
 	nasm -f elf32 Kernel/src/idtflush.asm -o Kernel/build/idt_flush.o
 	nasm -f elf32 Kernel/src/userspace.asm -o Kernel/build/userspace.o
     
-	# 2. Compile C logic
+	# compile C logic with flags and path to header files
 	i686-elf-gcc -c Kernel/src/kernel.c -o Kernel/build/kernel.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
 	i686-elf-gcc -c Kernel/src/gdt.c -o Kernel/build/gdt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
 	i686-elf-gcc -c Kernel/src/idt.c -o Kernel/build/idt.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
 	i686-elf-gcc -c Kernel/src/vga.c -o Kernel/build/vga.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
 	i686-elf-gcc -c Kernel/src/driver.c -o Kernel/build/driver.o -ffreestanding -O0 -nostdlib -fno-stack-protector -fno-builtin -I Kernel/src/
 
-	# 3. Link everything
+	# linking everything together
 	i686-elf-ld -o Kernel/bin/kernel.bin -T Bootloader/linker.ld \
 		Kernel/build/kernel_entry.o \
 		Kernel/build/kernel.o \
