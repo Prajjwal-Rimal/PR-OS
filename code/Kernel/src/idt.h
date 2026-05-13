@@ -13,6 +13,7 @@
 // gate type: describes the interrupt
 // segment selector: specifies the code segment in the gdt that will be use for the entry
 
+// struct to represent one entry in the idt
 struct idt_entry {
     uint16_t baselow;
     uint16_t sel;
@@ -22,6 +23,7 @@ struct idt_entry {
 } __attribute__((packed));
 //attribute packed tells to define the memory the way we have defined it doing so make it that there is no extra padding in the struct
    
+// struct for idt pointer
 struct idt_ptr
 {
     uint16_t limit;
@@ -32,7 +34,7 @@ void initidt();
     
 void idtgate (uint8_t number, uint32_t base, uint16_t sel, uint8_t flags);
      
-
+// struct to store the cpu state during the interrupt
 struct InterruptRegisters{
     uint32_t cr2;
     uint32_t ds;
@@ -81,6 +83,7 @@ extern void isr31();
 extern void isr128();
 extern void isr177();
 
+// hardware interrupts from pic/keyboard
 extern void irq0();
 extern void irq1();
 extern void irq2();

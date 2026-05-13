@@ -4,6 +4,8 @@
 # include "vga.h"
 #include "idt.h"
 
+// defining th port where the instuction is gonna be read from
 char inportb(uint16_t port);
+// defining the void hand the handler
 void initkeyboard();
 void keyboardhandeler(struct InterruptRegisters *regs);

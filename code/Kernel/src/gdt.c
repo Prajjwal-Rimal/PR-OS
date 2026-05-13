@@ -2,6 +2,7 @@
 #include <stdint.h>
 
 
+// calling the assembly function to initialize the gdt
 extern void gdt_flush(uint32_t);
 // extern void tss_flush();
 
@@ -9,6 +10,7 @@ struct gdt_entry gdt_entries[5];
 struct gdt_ptr gdt_pointer;
 // struct tss_entry_struct tss_entry;
 
+// defining the gdt valus in the init function
 void initgdt(){
     gdt_pointer.limit = (sizeof(struct gdt_entry) *6) - 1;
     gdt_pointer.base = (uint32_t)&gdt_entries;
@@ -40,7 +42,7 @@ void initgdt(){
 //     tss_entry.ss = tss_entry.ds = tss_entry.es = tss_entry.fs = tss_entry.gs = 0x10 | 0x3;
 // }
 
-
+// shifting the values in the cpu acceptable format
 void gdtgate (uint32_t num, uint32_t base, uint32_t limit, uint8_t access, uint8_t granularity ){
     gdt_entries[num].baselow = (base & 0xffff);
     gdt_entries[num].basemiddle = (base >> 16) & 0xff;

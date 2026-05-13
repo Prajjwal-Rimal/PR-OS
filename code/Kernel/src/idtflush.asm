@@ -1,13 +1,15 @@
 global idt_flush
 
+; loading the idt to the cpu
 idt_flush:
     sti
     mov eax, [esp+4]
+;loading into the idtr register
     lidt [eax]
     ret
 
 ; 2 different type of interrupt routines, one with error code, and one without error code
-
+; using macros to generater the isr functions automatically
 %macro ISR_NOERRORCODE 1
     global isr%1
     isr%1:

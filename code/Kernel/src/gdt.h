@@ -1,3 +1,4 @@
+// this provides fixed integer types
 #include <stdint.h>
 
    // GDT IN C
@@ -59,3 +60,4 @@
     void gdtgate (uint32_t num, uint32_t base, uint32_t limit, uint8_t access, uint8_t granularity );
     
     // void writeTSS(uint32_t num, uint16_t ss0, uint32_t esp0);
+    

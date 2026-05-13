@@ -6,21 +6,27 @@
 
 
 // read a vlaue from the specidfied port to rv and return it
+// inline assebly function to detect what value is in the port
 char inportb(uint16_t port){
     char rv;
     asm volatile("inb %1, %0":"=a"(rv):"dn"(port));
     return rv;
 }
 
+
+// defining the staqte of shift and caplock
 bool capson;
 bool capslock;
 
+// initializing the keyboard
 void initkeyboard(){
     capson = false;
     capslock = false;
     irq_install_handler(1,&keyboardhandeler);
 };
 
+// giving special keys values so thy dont conflict weith ascii keys
+// ascii keys have a value till below 256
 const uint32_t UNKNOWN = 0xFFFFFFFF;
 const uint32_t ESC = 0xFFFFFFFF - 1;
 const uint32_t CTRL = 0xFFFFFFFF - 2;
@@ -55,7 +61,7 @@ const uint32_t NONE = 0xFFFFFFFF - 30;
 const uint32_t ALTGR = 0xFFFFFFFF - 31;
 const uint32_t NUMLCK = 0xFFFFFFFF - 32;
 
-
+// defining the lowercase characters
 const uint32_t lowercase[128] = {
 UNKNOWN,ESC,'1','2','3','4','5','6','7','8',
 '9','0','-','=','\b','\t','q','w','e','r',
@@ -69,6 +75,7 @@ UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,
 UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN
 };
 
+// defining the uppercase characters
 const uint32_t uppercase[128] = {
     UNKNOWN,ESC,'!','@','#','$','%','^','&','*','(',')','_','+','\b','\t','Q','W','E','R',
 'T','Y','U','I','O','P','{','}','\n',CTRL,'A','S','D','F','G','H','J','K','L',':','"','~',LSHFT,'|','Z','X','C',
@@ -79,9 +86,10 @@ UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,
 UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN
 };
 
-
+// interrupot handler for the keyboard
 void keyboardhandeler(struct InterruptRegisters *regs){
     // data from keyboard is coming from 0x60 in 2 different parts a. keybard code, and pressed down or relaease
+    // reading the keyboard data, extract scan code, and the pressed state
     uint8_t raw_code = inportb(0x60);
     uint8_t scancode = raw_code & 0x7f;
     uint8_t press = raw_code & 0x80;

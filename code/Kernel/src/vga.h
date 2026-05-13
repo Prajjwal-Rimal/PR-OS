@@ -29,11 +29,13 @@
 #pragma once
 #include <stdint.h>
 
+// defining vga constants
 # define backgtoundcolor 0
 # define text_color 0x04
 # define width 80
 # define height 25
 
+// defining functions available in the vga file
 void print(const char *s);
 void scrollUp();
 void newline();

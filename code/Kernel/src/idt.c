@@ -1,11 +1,13 @@
 #include <stdint.h>
 #include "idt.h"
 
+// x86 supports 0-255 interrupts
 struct idt_entry idt[256];
 struct idt_ptr idt_pointer;
 
 extern void idt_flush(uint32_t);
 
+// memory set funcxtion, to fill memory with a value
 void memset(void *dest, char val, uint32_t count){
     char *temp = (char*) dest;
     for (; count !=0; count --){
@@ -13,18 +15,21 @@ void memset(void *dest, char val, uint32_t count){
     }
 }
 
+// writes one byte of the data to the i/o pport
 void outportB(uint16_t port, uint8_t value){
     // this outputs a byte of data to an spepcified io port
     asm volatile ("outb %1, %0" : : "dN" (port),"a" (value));
 }
 
+// setting upt the main inint function
 void initidt(){
     idt_pointer.limit = sizeof(struct idt_entry) * 256 -1;
     idt_pointer.base = (uint32_t) &idt;
 
+    // setting all entries in the idt to 0
     memset(idt, 0, sizeof(idt));
 
-    //pic
+    //pic remapping
     // 2 pic
     // master slave, or main or secondary
     // 0x20 for commands and ox21 for data
@@ -48,6 +53,7 @@ void initidt(){
     outportB(0x21, 0x0);
     outportB(0xA1, 0x0);
 
+    // setting cpu exceptions in the kernel code segment selector
     idtgate(0, (uint32_t)isr0, 0x08, 0x8e);
     idtgate(1, (uint32_t)isr1, 0x08, 0x8e);
     idtgate(2, (uint32_t)isr2, 0x08, 0x8e);
@@ -81,6 +87,7 @@ void initidt(){
     idtgate(30, (uint32_t)isr30, 0x08, 0x8e);
     idtgate(31, (uint32_t)isr31, 0x08, 0x8E);
 
+    // setting inteerrupts for syscalls
     idtgate(128, (uint32_t)isr128, 0x08, 0x8e);
     idtgate(177, (uint32_t)isr177, 0x08, 0x8E);
 
@@ -105,9 +112,11 @@ void initidt(){
     // 0x0e - 1000 1110
     // 0x08 - 0000 1000 - this is the selector 
 
+    // flusing the idt and loading it to the cpu
     idt_flush((uint32_t)&idt_pointer);
 }
 
+// filling th eidt entries with values
 void idtgate (uint8_t num, uint32_t base, uint16_t sel, uint8_t flags){
     idt[num].baselow = base & 0xFFFF;
     idt[num].basehigh = (base >> 16) & 0xFFFF;
@@ -117,7 +126,7 @@ void idtgate (uint8_t num, uint32_t base, uint16_t sel, uint8_t flags){
 }
 
 
-
+// message for each execption number
 unsigned char *exception_message[]={
     "Division By Zero",
     "Debug",
@@ -153,6 +162,7 @@ unsigned char *exception_message[]={
     "Reserved"
 };
 
+// function that is called whren the cpu exception occurs
 void isr_handler(struct InterruptRegisters *regs) {
     // 0xB8000 is the standard VGA text buffer address
     uint16_t *vga = (uint16_t*)0xB8000;
@@ -172,7 +182,7 @@ void isr_handler(struct InterruptRegisters *regs) {
     }
 }
 
-// rotines associated with interrupt requests
+// routines associated with interrupt requests
 void *irq_routines[16]={
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
  };
