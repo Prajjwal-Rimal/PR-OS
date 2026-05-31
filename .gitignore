@@ -6,3 +6,6 @@
 # img files can contain multiple binary files and simulate a storage device
 test/
 learning/
+
+code/Userspace/rust_userspace/target/
+code/Userspace/rust_userspace/Cargo.lock
